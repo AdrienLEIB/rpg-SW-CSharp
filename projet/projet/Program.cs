@@ -15,7 +15,7 @@ namespace projet
             Introduction();
            
 
-            Map world = new Map(10, 20);
+            Map world = new Map(5, 30);
             world.affMap();
             Console.ReadLine();
 

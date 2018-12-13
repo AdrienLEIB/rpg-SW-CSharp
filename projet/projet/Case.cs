@@ -8,7 +8,7 @@ namespace projet
 {
     class Case
     {
-        public enum CaseType { Desert, Plaine, Lac, Foret };
+        public enum Planet { Desert, Plaine, Lac, Foret };
 
         // public Monster m;
        // public Equipement Item;

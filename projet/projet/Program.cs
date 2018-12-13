@@ -12,8 +12,11 @@ namespace projet
         {
             Introduction();
             Console.WriteLine("\n Main Menu: \n\t 1 - Create New Game \n\t 2 - Load Saved Game \n`\t 3 - About \n\t 4 - Exit");
+
+            Map world = new Map(10, 20);
+            world.affMap();
             Console.ReadLine();
-            Console.ReadLine();
+
         }
         public static void Introduction()
         {

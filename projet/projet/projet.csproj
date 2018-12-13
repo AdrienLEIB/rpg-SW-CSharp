@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boss.cs" />
+    <Compile Include="Case.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Personnage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

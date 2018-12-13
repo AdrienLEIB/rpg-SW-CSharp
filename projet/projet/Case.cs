@@ -16,19 +16,10 @@ namespace projet
 
 
 
-        public Case()
+        public Case(int L, int l)
         {
-
+            
             Hero = null;
-            Random r = new Random(DateTime.Now.Millisecond);
-            if (r.Next() % 100 > 50)
-            {
-                Item = new potion("Soin", "Potion de soin", 1, 2, potion.PotionType.Heal);
-            }
-            else
-            {
-                Item = null;
-            }
         }
     }
 

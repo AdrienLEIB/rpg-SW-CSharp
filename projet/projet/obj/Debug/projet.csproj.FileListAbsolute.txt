@@ -1,0 +1,7 @@
+C:\Users\terra\source\repos\projet\projet\bin\Debug\projet.exe.config
+C:\Users\terra\source\repos\projet\projet\bin\Debug\projet.exe
+C:\Users\terra\source\repos\projet\projet\bin\Debug\projet.pdb
+C:\Users\terra\source\repos\projet\projet\obj\Debug\projet.csprojAssemblyReference.cache
+C:\Users\terra\source\repos\projet\projet\obj\Debug\projet.csproj.CoreCompileInputs.cache
+C:\Users\terra\source\repos\projet\projet\obj\Debug\projet.exe
+C:\Users\terra\source\repos\projet\projet\obj\Debug\projet.pdb

@@ -10,6 +10,7 @@ namespace projet
     {
         public string name;
         public enum Role { Luke, Solo, Leia, R2D2, Chewbacca  };
+
         public Role role;
 
         public float lvl;
@@ -22,6 +23,7 @@ namespace projet
         public float money;
         public int x;
         public int y;
+        public string symbole;
 
         
         public Personnage(string n, Role r)
@@ -33,6 +35,7 @@ namespace projet
             money = 2000;
             x = 1;
             y = 1;
+            symbole = "˅";
             if (role == Role.Luke)
             {
                 hp = 200;
@@ -69,6 +72,32 @@ namespace projet
                 atk = 75;
                 def = 200;
                 speed =75;
+            }
+        }
+        public void Deplacement()
+        {
+
+            Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest");
+            int dep = Program.AskChoice(0, 3);
+            switch (dep)
+            {
+                case 0:
+                    x = x - 1;
+                    symbole = "˄";
+                    break;
+                case 1:
+                    x = x + 1;
+                    symbole = "˅";
+                    break;
+                case 2:
+                    y = y + 1;
+                    symbole = "˃";
+                    break;
+                case 3:
+                    y = y - 1;
+                    symbole = "˂";
+                    break;
+
             }
         }
     }

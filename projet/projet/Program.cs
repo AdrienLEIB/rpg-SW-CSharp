@@ -14,14 +14,20 @@ namespace projet
             //Console.WriteLine("\n Main Menu: \n\t 1 - Create New Game \n\t 2 - Load Saved Game \n`\t 3 - About \n\t 4 - Exit");
 
             //Introduction();
-           
+            
 
             Map world = new Map(5, 30);
             Personnage heros = new Personnage("Adrien", Personnage.Role.Chewbacca);
 
-            world.affMap(heros.x,heros.y);
+            world.affMap(heros);
+            while (true) {
+                heros.Deplacement();
+                Console.Clear();
+                world.affMap(heros);
+                //Console.ReadLine();
+            }
             
-            Console.ReadLine();
+
 
         }
         public static void Introduction()
@@ -37,6 +43,17 @@ namespace projet
             Console.WriteLine("\n Les rebelles manquent de force. \n Mon Mothma leader de l'alliance \n prepare une attaque direct à l' \n étoile de la mort & l'assasinat \n du terrifiant Dark Vador... \n Un jeune héros formé à Alderaan \n décide de participer au combat..");
             Console.ForegroundColor = ConsoleColor.White;
 
+
+        }
+        public static int AskChoice(int min, int max)
+        {
+            // on transforme le string en int
+            int result = int.Parse(Console.ReadLine());
+            while (result > max || result < min)
+            {
+                result = int.Parse(Console.ReadLine());
+            }
+            return result;
 
         }
     }

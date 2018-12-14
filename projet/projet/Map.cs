@@ -26,7 +26,7 @@ namespace projet
                 }
             }
         }
-        public  void affMap(int x, int y)
+        public  void affMap(Personnage heros)
         {
             Console.OutputEncoding = Encoding.Unicode;
             
@@ -45,10 +45,9 @@ namespace projet
                     Console.ForegroundColor = ConsoleColor.White;
                     symbole = null;
                     //Pos perso
-                    if((i==x) && (j==y))
+                    if((i==heros.x) && (j==heros.y))
                     {
-                        symbole = "˅";
-                        Console.Write(symbole);
+                        Console.Write(heros.symbole);
                         continue;
                     }
 

@@ -32,6 +32,7 @@ namespace projet
             {
                 for (int j = 0; j < Plateau.GetLength(1); j++)
                 {
+                    // Quadrillage
                     Console.ForegroundColor = ConsoleColor.White;
                     symbole = null;
                     if( ((i==0) && (j > 0) && (j < Plateau.GetLength(1) - 1)) || ((i==Plateau.GetLength(0)-1)&&(j>0) && (j < Plateau.GetLength(1) - 1)))
@@ -42,6 +43,8 @@ namespace projet
                     {
                         symbole = "|";
                     }
+
+                    // Les planetes
                     if((j==3) && (i==3))
                     {
                         symbole = "Օ";
@@ -49,7 +52,107 @@ namespace projet
                         Console.Write(symbole);
                         continue;
                     }
-                    if(symbole==null)
+                    if((j==6)&&(i==1))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == 8) && (i == 2))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.Write(symbole);
+                        continue;
+                    }
+
+                    if ((j == 10) && (i == 3))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == 13) && (i == 3))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == 14) && (i == 1))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == 20) && (i == 2))
+                    {
+                        symbole = "Օ";
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    // Etoile de la mort
+                    if ((j==Plateau.GetLength(1) - 2) && (i==1))
+                    {
+                        symbole = "╗";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if((j == Plateau.GetLength(1) - 3) && (i == 1))
+                    {
+                        symbole = "═";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if((j == Plateau.GetLength(1) - 4) && (i == 1))
+                    {
+                        symbole = "╔";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == Plateau.GetLength(1) - 2) && (i == 2))
+                    {
+                        symbole = "║";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == Plateau.GetLength(1) - 4) && (i == 2))
+                    {
+                        symbole = "║";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == Plateau.GetLength(1) - 4) && (i == 3))
+                    {
+                        symbole = "╚";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == Plateau.GetLength(1) - 3) && (i == 3))
+                    {
+                        symbole = "═";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if ((j == Plateau.GetLength(1) - 2) && (i == 3))
+                    {
+                        symbole = "╝";
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(symbole);
+                        continue;
+                    }
+                    if (symbole==null)
                     {
                     symbole= " ";
                     }

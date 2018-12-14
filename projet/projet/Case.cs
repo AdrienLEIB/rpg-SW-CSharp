@@ -8,7 +8,6 @@ namespace prolet
 {
     class Case
     {
-        public enum Planet { Desert, Plaine, Lac, Foret };
         public enum Symbole { Planet, Hero, Shop, Boss_m, Boss_tl,Boss_t,Boss_tr,Boss_bl,Boss_b,Boss_br}
         // public Monster m;
        // public Equipement Item;

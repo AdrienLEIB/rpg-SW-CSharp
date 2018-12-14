@@ -19,7 +19,7 @@ namespace projet
             Map world = new Map(5, 30);
             Personnage heros = new Personnage("Adrien", Personnage.Role.Chewbacca);
 
-            world.affMap();
+            world.affMap(heros.x,heros.y);
             
             Console.ReadLine();
 

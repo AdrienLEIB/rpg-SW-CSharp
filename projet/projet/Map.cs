@@ -26,7 +26,7 @@ namespace projet
                 }
             }
         }
-        public  void affMap()
+        public  void affMap(int x, int y)
         {
             Console.OutputEncoding = Encoding.Unicode;
             
@@ -45,7 +45,12 @@ namespace projet
                     Console.ForegroundColor = ConsoleColor.White;
                     symbole = null;
                     //Pos perso
-
+                    if((i==x) && (j==y))
+                    {
+                        symbole = "˅";
+                        Console.Write(symbole);
+                        continue;
+                    }
 
 
                     // Les planetes

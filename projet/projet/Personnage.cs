@@ -19,6 +19,10 @@ namespace projet
         public float atk;
         public float def;
         public float speed;
+        public float money;
+        public int x;
+        public int y;
+
         
         public Personnage(string n, Role r)
         {
@@ -26,7 +30,9 @@ namespace projet
             role = r;
             lvl = 0;
             xp = 0;
-
+            money = 2000;
+            x = 1;
+            y = 1;
             if (role == Role.Luke)
             {
                 hp = 200;
@@ -41,6 +47,7 @@ namespace projet
                 atk = 75;
                 def = 50;
                 speed = 75;
+                money = money + 1000;
             }
             if (role == Role.Leia)
             {

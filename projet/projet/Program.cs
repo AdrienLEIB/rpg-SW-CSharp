@@ -11,21 +11,24 @@ namespace projet
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("\n Main Menu: \n\t 1 - Create New Game \n\t 2 - Load Saved Game \n`\t 3 - About \n\t 4 - Exit");
-
-            //Introduction();
+            Console.WriteLine("\n Main Menu: \n\t 1 - Create New Game \n\t 2 - Load Saved Game \n`\t 3 - About \n\t 4 - Exit");
             
+            int want = Program.AskChoice(1, 4);
+            switch (want)
+            {
+                case 1:
+                    Game new_game = new Game();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
 
-            Map world = new Map(5, 30);
-            Personnage heros = new Personnage("Adrien", Personnage.Role.Chewbacca);
+                    break;
 
-            world.affMap(heros);
-            while (true) {
-                heros.Deplacement();
-                Console.Clear();
-                world.affMap(heros);
-                //Console.ReadLine();
             }
+
             
 
 

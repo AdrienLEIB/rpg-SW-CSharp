@@ -97,9 +97,9 @@ namespace projet
                         symbole = "╝";
                         Console.ForegroundColor = Plateau[i, j].color;
                     }
-                    if (symbole==null)
+                    if (Plateau[i, j].Type == Case.Symbole.Vide)
                     {
-                    symbole= "";
+                    symbole= " ";
                     }
                     Console.Write(symbole);
                 }

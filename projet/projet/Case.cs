@@ -8,7 +8,7 @@ namespace prolet
 {
     class Case
     {
-        public enum Symbole { Planet, Hero, Shop, Boss_m, Boss_tl,Boss_t,Boss_tr,Boss_bl,Boss_b,Boss_br}
+        public enum Symbole { Planet, Hero, Shop, Boss_m, Boss_tl,Boss_t,Boss_tr,Boss_bl,Boss_b,Boss_br,Vide}
         // public Monster m;
        // public Equipement Item;
         public Case Hero;
@@ -18,7 +18,8 @@ namespace prolet
 
         public Case(int L, int l)
         {
-           
+            //On declare d'abbord le type étant null
+            Type = Symbole.Vide;
 
             // Les planetes
             if ((l == 3) && (L == 3))
@@ -95,8 +96,6 @@ namespace prolet
                 Type = Symbole.Boss_bl;
                 color = ConsoleColor.DarkRed;
             }
-
-
 
         }
     }

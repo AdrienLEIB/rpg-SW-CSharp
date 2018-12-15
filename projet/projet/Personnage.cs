@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prolet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,31 +75,108 @@ namespace projet
                 speed =75;
             }
         }
-        public void Deplacement()
+        public void Deplacement(Map map)
         {
+            int dep = 5;
 
-            Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest");
-            int dep = Program.AskChoice(0, 3);
-            switch (dep)
-            {
-                case 0:
-                    x = x - 1;
-                    symbole = "˄";
-                    break;
-                case 1:
-                    x = x + 1;
-                    symbole = "˅";
-                    break;
-                case 2:
-                    y = y + 1;
-                    symbole = "˃";
-                    break;
-                case 3:
-                    y = y - 1;
-                    symbole = "˂";
-                    break;
+                if ((map.Plateau[x,y].Type == Case.Symbole.Planet))
+                {
+                    Console.Write(x);
+                    Console.Write(y);
+                }
 
+           
+                if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest");
+                    dep = Program.AskChoice(0, 3);
+                }
+                if ((x == 0)&&(x<4) && (y >0) &&(y<29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest");
+                    dep = Program.AskChoice(1, 3);
+                }
+
+                if ((x > 0) && (x == 4) && (y > 0) && (y < 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while (dep == 1);
+
+                }
+                if ((x > 0) && (x < 4) && (y == 0) && (y < 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est ");
+                    dep = Program.AskChoice(0, 2);
+                }
+
+                if ((x > 0) && (x < 4) && (y > 0) && (y == 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while (dep == 2);
+                }
+
+                if ((x == 0) && (x < 4) && (y == 0) && (y < 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est ");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while ((dep == 0) || (dep == 3));
+
+                }
+                if ((x == 0) && (x < 4) && (y > 0) && (y == 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest ");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while ((dep == 0) || (dep == 2));
+
+                }
+                if ((x > 0) && (x == 4) && (y > 0) && (y == 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest ");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while ((dep == 1) || (dep == 2));
+
+                }
+                if ((x > 0) && (x == 4) && (y == 0) && (y < 29))
+                {
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est ");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 3);
+                    } while ((dep == 1) || (dep == 3));
+
+                }
+                switch (dep)
+                {
+                    case 0:
+                        x = x - 1;
+                        symbole = "˄";
+                        break;
+                    case 1:
+                        x = x + 1;
+                        symbole = "˅";
+                        break;
+                    case 2:
+                        y = y + 1;
+                        symbole = "˃";
+                        break;
+                    case 3:
+                        y = y - 1;
+                        symbole = "˂";
+                        break;
+
+                }
             }
-        }
+        
     }
 }

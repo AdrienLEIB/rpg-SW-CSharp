@@ -53,7 +53,7 @@ namespace projet
 
 
                     // Les planetes
-                    if(Plateau[i, j].Type == Case.Symbole.Planet)
+                    if(Plateau[i, j].Type == Case.Lieu.Planet)
                     {
                         symbole = "Օ";
                         Console.ForegroundColor = Plateau[i,j].color;
@@ -62,42 +62,13 @@ namespace projet
 
                     // Etoile de la mort
 
-                    if (Plateau[i,j].Type == Case.Symbole.Boss_tr)
+                    if (Plateau[i,j].Type == Case.Lieu.Boss)
                     {
-                        symbole = "╗";
+                        symbole = Plateau[i, j].symbole;
                         Console.ForegroundColor = Plateau[i, j].color;
                     }
-                    if(Plateau[i, j].Type == Case.Symbole.Boss_t)
-                    {
-                        symbole = "═";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if(Plateau[i, j].Type == Case.Symbole.Boss_tl)
-                    {
-                        symbole = "╔";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if (Plateau[i, j].Type == Case.Symbole.Boss_m)
-                    {
-                        symbole = "║";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if (Plateau[i, j].Type == Case.Symbole.Boss_bl)
-                    {
-                        symbole = "╚";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if (Plateau[i, j].Type == Case.Symbole.Boss_b)
-                    {
-                        symbole = "═";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if (Plateau[i, j].Type == Case.Symbole.Boss_br)
-                    {
-                        symbole = "╝";
-                        Console.ForegroundColor = Plateau[i, j].color;
-                    }
-                    if (Plateau[i, j].Type == Case.Symbole.Vide)
+                   
+                    if (Plateau[i, j].Type == Case.Lieu.Vide)
                     {
                     symbole= " ";
                     }

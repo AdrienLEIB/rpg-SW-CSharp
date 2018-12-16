@@ -8,92 +8,108 @@ namespace prolet
 {
     class Case
     {
-        public enum Symbole { Planet, Hero, Shop, Boss_m, Boss_tl,Boss_t,Boss_tr,Boss_bl,Boss_b,Boss_br,Vide}
+        public enum Lieu { Planet, Hero, Shop, Boss,Vide}
         // public Monster m;
        // public Equipement Item;
         public Case Hero;
-        public Symbole Type;
+        public Lieu Type;
         public ConsoleColor color;
+        public string symbole;
 
 
         public Case(int L, int l)
         {
             //On declare d'abbord le type étant null
-            Type = Symbole.Vide;
-
+            Type = Lieu.Vide;
+            symbole = "";
             // Les planetes
             if ((l == 3) && (L == 3))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.Red;
+                symbole = "Օ";
             }
             if ((l == 6) && (L == 1))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.Yellow;
+                symbole = "Օ";
             }
             if ((l == 8) && (L == 2))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.Green;
+                symbole = "Օ";
             }
 
             if ((l == 10) && (L == 3))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.DarkBlue;
+                symbole = "Օ";
             }
             if ((l == 13) && (L == 3))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.DarkMagenta;
+                symbole = "Օ";
             }
             if ((l == 14) && (L == 1))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.DarkCyan;
+                symbole = "Օ";
             }
             if ((l == 20) && (L == 2))
             {
-                Type = Symbole.Planet;
+                Type = Lieu.Planet;
                 color = ConsoleColor.DarkGray;
+                symbole = "Օ";
             }
+
             //EtoLle de la mort
            if ((l == 29) && (L == 1))
             {
-                Type = Symbole.Boss_tr;
+                Type = Lieu.Boss;
+                symbole = "╗";
                 color = ConsoleColor.DarkRed;
 
             }
             if ((l == 28) && (L == 1))
             {
-                Type = Symbole.Boss_t;
+                Type = Lieu.Boss;
+                symbole = "═";
                 color = ConsoleColor.DarkRed;
             }
             if ((l == 27) && (L == 1))
             {
-                Type = Symbole.Boss_tl;
+                Type = Lieu.Boss;
                 color = ConsoleColor.DarkRed;
+                symbole = "╔";
             }
             if (((l == 29) && (L == 2)) || ((l ==27) && (L == 2)))
             {
-                Type = Symbole.Boss_m;
+                Type = Lieu.Boss;
                 color = ConsoleColor.DarkRed;
+                symbole = "║";
             }
 
             if ((l == 29) && (L == 3))
             {
-                Type = Symbole.Boss_br;
+                Type = Lieu.Boss;
                 color = ConsoleColor.DarkRed;
+                symbole = "╝";
             }
             if ((l == 28) && (L == 3))
             {
-                Type = Symbole.Boss_b;
+                Type = Lieu.Boss;
                 color = ConsoleColor.DarkRed;
+                symbole = "═";
             }
             if ((l == 27) && (L == 3))
             {
-                Type = Symbole.Boss_bl;
+                symbole = "╚";
+                Type = Lieu.Boss;
                 color = ConsoleColor.DarkRed;
             }
 

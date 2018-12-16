@@ -79,7 +79,7 @@ namespace projet
         {
             int dep = 5;
 
-                if ((map.Plateau[x,y].Type == Case.Symbole.Planet))
+                if ((map.Plateau[x,y].Type == Case.Lieu.Planet))
                 {
                     Console.Write(x);
                     Console.Write(y);

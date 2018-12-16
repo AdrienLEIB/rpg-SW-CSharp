@@ -33,21 +33,6 @@ namespace projet
 
 
         }
-        public static void Introduction()
-        {
-            Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("\n Il y a bien longtemps, dans\n une galaxie très lointaine...");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Thread.Sleep(5000);
-            Console.Clear();
-            Console.WriteLine("\n STAR WARS");
-            Thread.Sleep(2500);
-            Console.Clear();
-            Console.WriteLine("\n Les rebelles manquent de force. \n Mon Mothma leader de l'alliance \n prepare une attaque direct à l' \n étoile de la mort & l'assasinat \n du terrifiant Dark Vador... \n Un jeune héros formé à Alderaan \n décide de participer au combat..");
-            Console.ForegroundColor = ConsoleColor.White;
-
-
-        }
         public static int AskChoice(int min, int max)
         {
             // on transforme le string en int

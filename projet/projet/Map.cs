@@ -55,7 +55,7 @@ namespace projet
                     // Les planetes
                     if(Plateau[i, j].Type == Case.Lieu.Planet)
                     {
-                        symbole = "Օ";
+                        symbole = Plateau[i, j].symbole;
                         Console.ForegroundColor = Plateau[i,j].color;
 
                     }

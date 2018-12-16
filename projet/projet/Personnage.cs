@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class Personnage
+        abstract class Personnage
     {
         public string name;
         public enum Role { Luke, Solo, Leia, R2D2, Chewbacca  };
@@ -27,53 +27,16 @@ namespace projet
         public string symbole;
 
         
-        public Personnage(string n, Role r)
+        public Personnage(string n)
         {
             name = n;
-            role = r;
             lvl = 0;
             xp = 0;
             money = 2000;
             x = 1;
             y = 1;
             symbole = "˅";
-            if (role == Role.Luke)
-            {
-                hp = 200;
-                atk = 125;
-                def = 75;
-                speed = 100;
-
-            }
-            if (role == Role.Solo)
-            {
-                hp = 150;
-                atk = 75;
-                def = 50;
-                speed = 75;
-                money = money + 1000;
-            }
-            if (role == Role.Leia)
-            {
-                hp = 200;
-                atk = 75;
-                def = 125;
-                speed = 100;
-            }
-            if(role== Role.R2D2)
-            {
-                hp = 400;
-                atk = 75;
-                def = 75;
-                speed = 110;
-            }
-            if(role==Role.Chewbacca)
-            {
-                hp = 300;
-                atk = 75;
-                def = 200;
-                speed =75;
-            }
+           
         }
         public void Deplacement(Map map)
         {

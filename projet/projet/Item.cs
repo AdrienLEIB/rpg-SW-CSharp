@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class Inventaire
+    abstract class Item
     {
-        public Item[,] item;
+        public string name;
+        public string description;
+        public float value;
     }
 }

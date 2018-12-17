@@ -6,25 +6,30 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class Boss
+    abstract class Boss
     {
-        public enum Planete {  };
-        public string name;
+
         public float hp;
         public float atk;
         public float def;
         public float speed;
-        public Boss(string n)
+        public Boss()
         {
-            name = n;
-            if (name == "Vador")
-            {
-                hp = 2000;
-                atk = 2500;
-                def = 2500;
-                speed = 2500;
-            }
+        
             
+        }
+        public static void damage(Personnage heros, Boss boss)
+        {
+
+            if (heros.atk > boss.def)
+            {
+                boss.hp = boss.hp - (heros.atk - boss.def);
+            }
+            if (heros.atk <= boss.def)
+            {
+                boss.hp = boss.hp - 1;
+            }
+
         }
     }
 }

@@ -10,9 +10,7 @@ namespace projet
         abstract class Personnage
     {
         public string name;
-        public enum Role { Luke, Solo, Leia, R2D2, Chewbacca  };
 
-        public Role role;
 
         public float lvl;
         public float xp;
@@ -40,17 +38,30 @@ namespace projet
 
            
         }
-        public void Deplacement(Map map)
+        public void test()
+        {
+            Console.WriteLine(atk);
+        }
+        public string Deplacement(Map map)
         {
             int dep = 5;
+            string result = null;
+            Boss vador = new Vador();
+
 
                 if ((map.Plateau[x,y].Type == Case.Lieu.Planet))
                 {
                     Console.Write(x);
                     Console.Write(y);
                 }
+                if((map.Plateau[x,y].Type == Case.Lieu.Boss))
+                {
+                    result = Combat(vador);
+                x = 0;
+                y = 0;
+                }
 
-           
+
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
                     Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire");
                     dep = Program.AskChoice(0, 4);
@@ -146,7 +157,102 @@ namespace projet
                         inv.affInventaire();
                         break;
                 }
+            return result;
+        }
+        public string Combat(Boss b)
+        {
+            string result = null;
+            Console.WriteLine("Un Dark Vador sauvage apparaît !");
+            Console.Clear();
+            int choice = 0;
+            do
+            {
+                Console.WriteLine(@"                       .-.
+                           .-.
+                          |_:_|
+                         /(_Y_)\
+    .                   ( \/M\/ )
+     '.               _.'-/'-'\-'._
+       ':           _/.--'[[[[]'--.\_
+         ':        /_'  : |:: | :  '.\
+           ':     //   ./ |oUU| \.'  :\
+             ':  _:'..' \_|___|_/ :   :|
+               ':.  .' | _[___]_ |  :.':\
+                [::\ |  :  | |  :   ; : \
+                 '-'   \/ '.| |.' \  .;.' |
+                  |\_    \  '-'   :       |
+ 
+                  |  \    \ .:    :   |   |
+ 
+                  |   \    | '.   :    \  |
+                  /       \   :. .;       |
+ 
+                 /     |   |  :__ /     :  \\
+               |  |   |    \:   | \   |   ||
+              /    \  : :  |:   /  | __ |   /|
+          snd |     : : :_ / _ |  / '._\  '-- | _\
+              / ___.-/ _ | -'   \  \
+                             '-'");
+                Console.WriteLine(b.hp + " PV");
+                Console.WriteLine(result);
+                Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir");
+                choice = Program.AskChoice(1, 3);
+                switch (choice)
+                {
+                    case 1:
+                        damage_boss(b);
+                        damage_player(b);
+                        if(hp <= 0)
+                        {
+                            result = "loose";
+                        }
+                        if(b.hp <= 0)
+                        {
+                            result = "win";
+                        }
+                        if((hp<=0) && (b.hp <= 0))
+                        { 
+                            if (speed >= b.speed)
+                            {
+                                result = "win";
+                            }
+                            if (speed < b.speed)
+                            {
+                                result = "loose";
+                            }
+                        }
+                        break;
+                    case 2:
+                        inv.affInventaire();
+                        break;
+                    case 3:
+                        break;
+                }
+            } while ((result != "win") || (result!= "loose") || (choice != 3));
+
+            return result;
+        }
+        public void damage_boss(Boss boss)
+        {
+                if (atk > boss.def)
+                {
+                    boss.hp = boss.hp - (atk - boss.def);
+                }
+                if (atk <= boss.def)
+                {
+                    boss.hp = boss.hp - 1;
+                }
+        }
+        public void damage_player(Boss boss)
+        {
+            if (boss.atk > def)
+            {
+                hp = hp - (boss.atk - def);
             }
-        
+            if (boss.atk <= def)
+            {
+                hp = hp - 1;
+            }
+        }
     }
 }

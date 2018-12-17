@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class Vador
+    class Vador:Boss
     {
+        public Vador():base()
+        {
+            hp = 10;
+            atk = 2;
+            def = 2;
+            speed = 2;
+                
+        }
     }
 }

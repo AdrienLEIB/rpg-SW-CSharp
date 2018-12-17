@@ -25,7 +25,7 @@ namespace projet
         public int x;
         public int y;
         public string symbole;
-
+        public Inventaire inv;
         
         public Personnage(string n)
         {
@@ -36,6 +36,8 @@ namespace projet
             x = 1;
             y = 1;
             symbole = "˅";
+            inv = new Inventaire();
+
            
         }
         public void Deplacement(Map map)
@@ -50,72 +52,75 @@ namespace projet
 
            
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest");
-                    dep = Program.AskChoice(0, 3);
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire");
+                    dep = Program.AskChoice(0, 4);
                 }
                 if ((x == 0)&&(x<4) && (y >0) &&(y<29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest");
-                    dep = Program.AskChoice(1, 3);
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire");
+                    dep = Program.AskChoice(1, 4);
                 }
 
                 if ((x > 0) && (x == 4) && (y > 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while (dep == 1);
 
                 }
                 if ((x > 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est ");
-                    dep = Program.AskChoice(0, 2);
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 4-Inventaire");
+                    do
+                    {
+                        dep = Program.AskChoice(0, 4);
+                    } while (dep ==3);
                 }
 
                 if ((x > 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while (dep == 2);
                 }
 
                 if ((x == 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est ");
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while ((dep == 0) || (dep == 3));
 
                 }
                 if ((x == 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest ");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while ((dep == 0) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest ");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while ((dep == 1) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est ");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 4-Inventaire");
                     do
                     {
-                        dep = Program.AskChoice(0, 3);
+                        dep = Program.AskChoice(0, 4);
                     } while ((dep == 1) || (dep == 3));
 
                 }
@@ -137,7 +142,9 @@ namespace projet
                         y = y - 1;
                         symbole = "˂";
                         break;
-
+                    case 4:
+                        inv.affInventaire();
+                        break;
                 }
             }
         

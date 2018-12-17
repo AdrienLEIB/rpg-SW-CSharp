@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class Inventaire
+    class Equipement
     {
-        public Item[,] item;
     }
 }

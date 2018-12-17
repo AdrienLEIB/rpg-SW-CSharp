@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class chaussure
+    class Vador
     {
-        public enum ChaussureType { basket, converse}
-        public ChaussureType type;
     }
 }

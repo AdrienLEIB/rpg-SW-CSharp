@@ -18,7 +18,7 @@ namespace projet
             Console.WriteLine("Quel est t'on nom?");
             string name = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("\n Quel héros souhaites-tu incarner? \n 1 - Un wookie \n 2- Un contrebandier \n 3- Un Jedi");
+            Console.WriteLine("\n Quel héros souhaites-tu incarner? \n 1- Un wookie \n 2- Un contrebandier \n 3- Un Jedi");
             int heros_want = Program.AskChoice(1, 3);
             switch (heros_want)
             {
@@ -32,7 +32,7 @@ namespace projet
                     heros = new jedi(name);
                     break;
             }
-           
+
             world.affMap(heros);
             while (true) {
                heros.Deplacement(world);

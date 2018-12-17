@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    abstract class Item
+    class Stormtrooper
     {
-        public string name;
-        public string description;
-        public float value;
     }
 }

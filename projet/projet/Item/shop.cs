@@ -84,12 +84,21 @@ namespace projet
                     {
                         heros.money = money_save;
                         heros.inv.addInventaire(item[i]);
+                        Console.WriteLine("Succes !");
                     }
                     else
                     {
                         Console.WriteLine("Erreur vous n'avez pas assez");
                     }
                 }
+            }
+            if (o < (item.Count + 1))
+            {
+                affShop();
+            }
+            else
+            {
+                
             }
             
         }

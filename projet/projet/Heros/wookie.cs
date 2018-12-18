@@ -14,6 +14,11 @@ namespace projet
             atk = 125;
             def = 75;
             speed = 100;
+
+            hp_base = hp;
+            atk_base = atk;
+            def_base = def;
+            speed_base = speed;
         }
 
     }

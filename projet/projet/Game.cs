@@ -41,6 +41,12 @@ namespace projet
             {
                 world.affMap(heros);
                 heros.Deplacement(world);
+                if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Planet)
+                {
+                    Boss storm = new Stormtrooper(heros);
+                    heros.Combat_storm(storm);
+
+                }
                 if (world.Plateau[heros.x,heros.y].Type == Case.Lieu.Boss)
                 {
                     resultat = heros.Combat(Vador);
@@ -59,7 +65,19 @@ namespace projet
             Console.ForegroundColor = ConsoleColor.Yellow;
             Thread.Sleep(5000);
             Console.Clear();
-            Console.WriteLine("\n STAR WARS");
+            Console.WriteLine(@"
+                    8888888888  888    88888
+                   88     88   88 88   88  88
+                    8888  88  88   88  88888
+                       88 88 888888888 88   88
+                88888888  88 88     88 88    888888
+
+
+                88  88  88   888    88888    888888
+                88  88  88  88 88   88  88  88
+                88 8888 88 88   88  88888    8888
+                 888  888 888888888 88   88     88
+                  88  88  88     88 88    8888888");
             Thread.Sleep(2500);
             Console.Clear();
             Console.WriteLine("\n Les rebelles manquent de force. \n Mon Mothma leader de l'alliance \n prepare une attaque direct à l' \n étoile de la mort & l'assasinat \n du terrifiant Dark Vador... \n Un jeune héros formé à Alderaan \n décide de participer au combat..");

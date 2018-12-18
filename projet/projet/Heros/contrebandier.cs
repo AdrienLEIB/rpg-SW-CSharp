@@ -15,6 +15,13 @@ namespace projet
             def = 50;
             speed = 75;
             money = money + 1000;
+
+            hp_base = hp;
+            atk_base = atk;
+            def_base = def;
+            speed_base = speed;
+
+
         }
     }
 }

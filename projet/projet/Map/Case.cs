@@ -8,7 +8,7 @@ namespace prolet
 {
     class Case
     {
-        public enum Lieu { Planet, Hero, Shop, Boss,Vide}
+        public enum Lieu { Planet, Hero, Shop, Boss,Spawn,Vide}
         // public Monster m;
        // public Equipement Item;
         public Case Hero;
@@ -23,43 +23,43 @@ namespace prolet
             Type = Lieu.Vide;
             symbole = "";
             // Les planetes
+            if ((l == 1) && (L == 1))
+            {
+                Type = Lieu.Spawn;
+                color = ConsoleColor.Green;
+                symbole = "Օ";
+            }
             if ((l == 3) && (L == 3))
             {
                 Type = Lieu.Planet;
-                color = ConsoleColor.Red;
+                color = ConsoleColor.Blue;
                 symbole = "Օ";
             }
-            if ((l == 6) && (L == 1))
+            if ((l == 6) && (L == 0))
             {
-                Type = Lieu.Planet;
-                color = ConsoleColor.Yellow;
-                symbole = "Օ";
-            }
-            if ((l == 8) && (L == 2))
-            {
-                Type = Lieu.Planet;
-                color = ConsoleColor.Green;
+                Type = Lieu.Shop;
+                color = ConsoleColor.DarkGray;
                 symbole = "Օ";
             }
 
             if ((l == 10) && (L == 3))
             {
                 Type = Lieu.Planet;
-                color = ConsoleColor.DarkBlue;
+                color = ConsoleColor.DarkYellow;
                 symbole = "Օ";
             }
-            if ((l == 13) && (L == 3))
+            if ((l == 13) && (L == 1))
             {
                 Type = Lieu.Planet;
-                color = ConsoleColor.DarkMagenta;
+                color = ConsoleColor.DarkRed;
                 symbole = "Օ";
             }
-            if ((l == 14) && (L == 1))
-            {
-                Type = Lieu.Planet;
-                color = ConsoleColor.DarkCyan;
-                symbole = "Օ";
-            }
+            //if ((l == 14) && (L == 1))
+            //{
+            //    Type = Lieu.Planet;
+            //    color = ConsoleColor.DarkCyan;
+            //    symbole = "Օ";
+            //}
             if ((l == 20) && (L == 2))
             {
                 Type = Lieu.Planet;

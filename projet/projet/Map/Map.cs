@@ -59,7 +59,18 @@ namespace projet
                         Console.ForegroundColor = Plateau[i,j].color;
 
                     }
+                    if (Plateau[i, j].Type == Case.Lieu.Shop)
+                    {
+                        symbole = Plateau[i, j].symbole;
+                        Console.ForegroundColor = Plateau[i, j].color;
 
+                    }
+                    if (Plateau[i, j].Type == Case.Lieu.Spawn)
+                    {
+                        symbole = Plateau[i, j].symbole;
+                        Console.ForegroundColor = Plateau[i, j].color;
+
+                    }
                     // Etoile de la mort
 
                     if (Plateau[i,j].Type == Case.Lieu.Boss)

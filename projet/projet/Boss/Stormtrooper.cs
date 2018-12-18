@@ -14,7 +14,7 @@ namespace projet
             atk = j.atk / 2;
             def = j.atk / 2;
             speed = j.speed / 2;
-            hp = (j.hp_base*j.lvl) / 2;
+            hp = (j.hp_base*(j.lvl+1)) / 2;
         }
     }
 }

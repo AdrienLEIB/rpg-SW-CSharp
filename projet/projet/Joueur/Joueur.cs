@@ -30,7 +30,7 @@ namespace projet
         public int y;
         public string symbole;
         public Inventaire inv;
-        
+        public Equipement equip;
         public Joueur(string n)
         {
             name = n;
@@ -42,6 +42,7 @@ namespace projet
             y = 1;
             symbole = "˅";
             inv = new Inventaire();
+            equip = new Equipement();
             
         }
         public void Deplacement(Map map)
@@ -229,6 +230,7 @@ namespace projet
         {
             int result = 0;
             int choice;
+            Console.Clear();
             Console.WriteLine(@"
                          /__\ 
                         |<><>| 
@@ -313,8 +315,11 @@ namespace projet
             {
                 xp = xp_save  - xp;
                 lvl = lvl + 1;
-                xp_save = xp_save* (lvl + 1);
-                atk = atk + (atk_base * lvl);
+                xp_save = xp_save * (lvl + 1);
+                atk = atk + (atk_base * (lvl+1)) + equip.equipement[1].value;
+                def = def + (def_base * (lvl + 1)) + equip.equipement[2].value;
+                hp = hp + (hp_base * (lvl + 1)) + equip.equipement[1].value;
+                speed = speed + (speed_base * (lvl + 1));
             }
         }
         public void information()

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using prolet;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using prolet;
+using System.Threading;
+
 namespace projet
 {
     class Shop
@@ -12,11 +14,12 @@ namespace projet
 
         public Shop(Joueur heros)
         {
+            item = new List<Item>();
             string name = "sabrelaser";
             Item sabrelaser = new arme(name);
             item.Add(sabrelaser);
 
-            name = "pistole laser";
+            name = "pistolet laser";
             Item pistolerlaser = new arme(name);
             item.Add(pistolerlaser);
 
@@ -35,11 +38,14 @@ namespace projet
             name = "basket";
             Item basket = new chaussure(name);
             item.Add(basket);
-
+            
+            affShop();
             Vente(heros);
         }
         public void affShop()
         {
+
+            Console.Clear();
             int nb = 1;
             Console.WriteLine("Armures :");
             for (int i = 0; i < item.Count; i++)
@@ -69,10 +75,12 @@ namespace projet
                 }
             }
 
-            Console.WriteLine(nb + 1 + " - Quitter");
+            Console.WriteLine(nb + " - Quitter");
         }
         public void Vente(Joueur heros)
         {
+
+            Console.WriteLine("Vous avez : " + heros.money);
             int o = Program.AskChoice(0, (item.Count+1));
 
             for (int i = 0; i < item.Count; i++)
@@ -85,16 +93,19 @@ namespace projet
                         heros.money = money_save;
                         heros.inv.addInventaire(item[i]);
                         Console.WriteLine("Succes !");
+                        Thread.Sleep(1000);
                     }
                     else
                     {
                         Console.WriteLine("Erreur vous n'avez pas assez");
+                        Thread.Sleep(1000);
                     }
                 }
             }
             if (o < (item.Count + 1))
             {
                 affShop();
+                Vente(heros);
             }
             else
             {

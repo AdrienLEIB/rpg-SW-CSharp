@@ -24,11 +24,17 @@ namespace projet
                 value = 500;
                 prix = 50;
             }
-            else
+            if(n=="coteau")
             {
                 id = 2;
                 name = n;
                 value = 20;
+            }
+            else
+            {
+                id = 2;
+                name = n;
+                value = 0;
             }
         }
     }

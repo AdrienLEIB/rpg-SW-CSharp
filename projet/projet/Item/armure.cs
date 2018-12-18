@@ -27,6 +27,13 @@ namespace projet
                 value = 500;
                 prix = 25;
             }
+            else
+            {
+                name = n;
+                id = 1;
+                value = 0;
+                prix = 0;
+            }
             //id = 1;
         }
 

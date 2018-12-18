@@ -39,7 +39,6 @@ namespace projet
             //world.affMap(heros);
             while ((resultat == 0))
             {
-                Console.WriteLine("PV restant :" + heros.hp);
                 world.affMap(heros);
                 heros.Deplacement(world);
                 if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Planet)
@@ -48,10 +47,37 @@ namespace projet
                     heros.Combat_storm(storm);
 
                 }
+                if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Spawn)
+                {
+                    Console.Clear();
+                    Console.WriteLine(@"
+                                     /~\
+                                    |oo )
+                                    _\=/_
+                    ___            /  _  \
+                   / ()\          //|/.\|\\
+                 _|_____|_        \\ \_/  ||
+                | | === | |        \|\ /| ||
+                |_|  O  |_|        # _ _/ #
+                 ||  O  ||          | | |
+                 ||__*__||          | | |
+                |~ \___/ ~|         []|[]
+                /=\ /=\ /=\         | | |
+________________[_]_[_]_[_]________/_]_[_\_________________________
+");
+                    Console.Write("Vous etes sur la planete des revolutionnaires, vous recupèrez vos pv");
+                    heros.hp = heros.hp_base * (heros.lvl+1);
+                    Thread.Sleep(1500);
+                }
                 if (world.Plateau[heros.x,heros.y].Type == Case.Lieu.Boss)
                 {
                     resultat = heros.Combat(Vador);
                     
+                }
+                if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Shop)
+                {
+                    Shop shop = new Shop(heros);
+                    shop.affShop();
                 }
                 Console.Clear();
                 //world.affMap(heros);

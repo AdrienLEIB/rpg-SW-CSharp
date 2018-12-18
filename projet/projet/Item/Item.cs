@@ -12,6 +12,10 @@ namespace projet
         public string description;
         public float value;
         public int id;
-        public int prix;
+        public float prix;
+        public Item(string n)
+        {
+            name = n;
+        }
     }
 }

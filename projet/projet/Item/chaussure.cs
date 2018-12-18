@@ -10,8 +10,20 @@ namespace projet
     {
         public enum ChaussureType { basket, converse}
         public ChaussureType type;
-        public chaussure():base()
+        public chaussure(string n):base(n)
         {
+            if(n =="basket")
+            {
+                name = n;
+                value = 200;
+                prix = 10;
+            }
+            if(n=="converse")
+            {
+                name = n;
+                value = 500;
+                prix = 20;
+            }
             id = 3;
         }
     }

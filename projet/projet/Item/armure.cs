@@ -9,10 +9,25 @@ namespace projet
     class armure:Item
     {
         public enum ArmureType { diamant, fer}
-        public ArmureType type;
-        public armure():base()
+
+        public armure(string n):base(n)
         {
-            id = 1;
+            if(n == "diamant")
+            {
+                name = n;
+                id = 1;
+                value = 1500;
+                prix = 100;
+
+            }
+            if( n== "fer")
+            {
+                name = n;
+                id = 1;
+                value = 500;
+                prix = 25;
+            }
+            //id = 1;
         }
 
     }

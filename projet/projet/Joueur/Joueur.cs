@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace projet
 {
@@ -49,84 +50,77 @@ namespace projet
             Boss vador = new Vador();
 
 
-                if ((map.Plateau[x,y].Type == Case.Lieu.Planet))
-                {
-                    Console.Write(x);
-                    Console.Write(y);
-                }
-
-
 
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire");
-                    dep = Program.AskChoice(0, 4);
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
+                    dep = Program.AskChoice(0, 5);
                 }
                 if ((x == 0)&&(x<4) && (y >0) &&(y<29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire");
-                    dep = Program.AskChoice(1, 4);
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
+                    dep = Program.AskChoice(1, 5);
                 }
 
                 if ((x > 0) && (x == 4) && (y > 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while (dep == 1);
 
                 }
                 if ((x > 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while (dep ==3);
                 }
 
                 if ((x > 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while (dep == 2);
                 }
 
                 if ((x == 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while ((dep == 0) || (dep == 3));
 
                 }
                 if ((x == 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while ((dep == 0) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest \n 4-Inventaire 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while ((dep == 1) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 4-Inventaire");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 4-Inventaire \n 5-Information");
                     do
                     {
-                        dep = Program.AskChoice(0, 4);
+                        dep = Program.AskChoice(0, 5);
                     } while ((dep == 1) || (dep == 3));
 
                 }
@@ -150,6 +144,12 @@ namespace projet
                         break;
                     case 4:
                         inv.affInventaire();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        information();
+                        Thread.Sleep(5000);
+                        Console.Clear();
                         break;
                 }
         }
@@ -317,6 +317,16 @@ namespace projet
                 atk = atk + (atk_base * lvl);
             }
         }
-        
+        public void information()
+        {
+            Console.WriteLine("Nom " + name);
+            Console.WriteLine("HP " +hp);
+            Console.WriteLine("Level " + lvl);
+            Console.WriteLine("Attaque "+ atk);
+            Console.WriteLine("Defense " + def);
+            Console.WriteLine("Speed " + speed);
+            Console.WriteLine("XP " + xp);
+            Console.WriteLine("Monnai " + money);
+        }
     }
 }

@@ -13,6 +13,8 @@ namespace projet
         public float atk;
         public float def;
         public float speed;
+        public float xp;
+        public float money;
         public Boss()
         {
         

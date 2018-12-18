@@ -39,6 +39,7 @@ namespace projet
             //world.affMap(heros);
             while ((resultat == 0))
             {
+                Console.WriteLine("PV restant :" + heros.hp);
                 world.affMap(heros);
                 heros.Deplacement(world);
                 if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Planet)

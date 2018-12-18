@@ -10,10 +10,11 @@ namespace projet
     {
         public Stormtrooper(Joueur j):base()
         {
+            xp = (j.xp_save * j.lvl) / 4;
             atk = j.atk / 2;
             def = j.atk / 2;
             speed = j.speed / 2;
-            hp = j.hp / 2;
+            hp = (j.hp_base*j.lvl) / 2;
         }
     }
 }

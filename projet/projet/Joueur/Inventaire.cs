@@ -14,8 +14,8 @@ namespace projet
         public Inventaire()
         {
             item = new List<Item>();
-            Item test = new arme();
-            item.Add(test);
+            Item couteau = new arme("couteau");
+            item.Add(couteau);
             
         }
         public void addInventaire(Item i)
@@ -39,6 +39,7 @@ namespace projet
         }
         public  void affInventaire()
         {
+            Console.Clear();
             triInventaire();
             int nb = 1;
             Console.WriteLine("Armures :");

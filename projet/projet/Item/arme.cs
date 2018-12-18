@@ -8,14 +8,28 @@ namespace projet
 {
     class arme:Item
     {
-        public enum ArmeType { sabrelaser, pistolerlaser}
-        public ArmeType type;
 
-        public arme():base()
+        public arme(string n):base(n)
         {
-            id = 2;
-            name = "sabre laser";
-            value = 100;
+            if (n == "sabrelaser") { 
+                id = 2;
+                name = n;
+                value = 5000;
+                prix = 1000;
+            }
+            if( n== "pistoler laser")
+            {
+                id = 2;
+                name = n;
+                value = 500;
+                prix = 50;
+            }
+            else
+            {
+                id = 2;
+                name = n;
+                value = 20;
+            }
         }
     }
 }

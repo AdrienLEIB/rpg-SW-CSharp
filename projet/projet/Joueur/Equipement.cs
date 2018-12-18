@@ -8,5 +8,6 @@ namespace projet
 {
     class Equipement
     {
+        //TODO equipement
     }
 }

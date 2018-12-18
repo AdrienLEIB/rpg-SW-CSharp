@@ -26,7 +26,7 @@ namespace projet
                 }
             }
         }
-        public  void affMap(Personnage heros)
+        public  void affMap(Joueur heros)
         {
             Console.OutputEncoding = Encoding.Unicode;
             

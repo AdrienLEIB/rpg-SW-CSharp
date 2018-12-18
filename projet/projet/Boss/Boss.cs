@@ -18,7 +18,7 @@ namespace projet
         
             
         }
-        public static void damage(Personnage heros, Boss boss)
+        public static void damage(Joueur heros, Boss boss)
         {
 
             if (heros.atk > boss.def)

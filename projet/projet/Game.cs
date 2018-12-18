@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using prolet;
 
 namespace projet
 {
     class Game
     {
-        public Personnage heros;
+        public Joueur heros;
+        
         public Game()
         {
             //Introduction();
@@ -17,7 +19,7 @@ namespace projet
 
             Console.WriteLine("Quel est t'on nom?");
             string name = Console.ReadLine();
-            string resultat = null;
+            int resultat = 0;
             Console.Clear();
             Console.WriteLine("\n Quel héros souhaites-tu incarner? \n 1- Un wookie \n 2- Un contrebandier \n 3- Un Jedi");
             int heros_want = Program.AskChoice(1, 3);
@@ -34,13 +36,20 @@ namespace projet
                     break;
             }
             Boss Vador = new Vador();
-            world.affMap(heros);
-            while ((resultat != "loose") || (resultat != "win"))
+            //world.affMap(heros);
+            while ((resultat == 0))
             {
-                resultat = heros.Deplacement(world);
-                Console.Clear();
                 world.affMap(heros);
+                heros.Deplacement(world);
+                if (world.Plateau[heros.x,heros.y].Type == Case.Lieu.Boss)
+                {
+                    resultat = heros.Combat(Vador);
+                    
+                }
+                Console.Clear();
+                //world.affMap(heros);
             }
+            Console.WriteLine("GG");
             Console.ReadLine();
         }
         public static void Introduction()
@@ -56,7 +65,7 @@ namespace projet
             Console.WriteLine("\n Les rebelles manquent de force. \n Mon Mothma leader de l'alliance \n prepare une attaque direct à l' \n étoile de la mort & l'assasinat \n du terrifiant Dark Vador... \n Un jeune héros formé à Alderaan \n décide de participer au combat..");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        public static void damage(Personnage heros,Boss boss)
+        public static void damage(Joueur heros,Boss boss)
         {
 
                 if(heros.atk > boss.def)

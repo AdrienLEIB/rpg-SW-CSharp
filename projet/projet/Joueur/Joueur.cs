@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-        abstract class Personnage
+        abstract class Joueur
     {
         public string name;
 
@@ -25,7 +25,7 @@ namespace projet
         public string symbole;
         public Inventaire inv;
         
-        public Personnage(string n)
+        public Joueur(string n)
         {
             name = n;
             lvl = 0;
@@ -42,10 +42,9 @@ namespace projet
         {
             Console.WriteLine(atk);
         }
-        public string Deplacement(Map map)
+        public void Deplacement(Map map)
         {
             int dep = 5;
-            string result = null;
             Boss vador = new Vador();
 
 
@@ -54,12 +53,12 @@ namespace projet
                     Console.Write(x);
                     Console.Write(y);
                 }
-                if((map.Plateau[x,y].Type == Case.Lieu.Boss))
-                {
-                    result = Combat(vador);
-                x = 0;
-                y = 0;
-                }
+                //if((map.Plateau[x,y].Type == Case.Lieu.Boss))
+                //{
+                //    result = Combat(vador);
+                //x = 0;
+                //y = 0;
+                //}
 
 
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
@@ -157,11 +156,10 @@ namespace projet
                         inv.affInventaire();
                         break;
                 }
-            return result;
         }
-        public string Combat(Boss b)
+        public int Combat(Boss b)
         {
-            string result = null;
+            int result = 0;
             Console.WriteLine("Un Dark Vador sauvage apparaît !");
             Console.Clear();
             int choice = 0;
@@ -194,7 +192,6 @@ namespace projet
               / ___.-/ _ | -'   \  \
                              '-'");
                 Console.WriteLine(b.hp + " PV");
-                Console.WriteLine(result);
                 Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir");
                 choice = Program.AskChoice(1, 3);
                 switch (choice)
@@ -202,25 +199,6 @@ namespace projet
                     case 1:
                         damage_boss(b);
                         damage_player(b);
-                        if(hp <= 0)
-                        {
-                            result = "loose";
-                        }
-                        if(b.hp <= 0)
-                        {
-                            result = "win";
-                        }
-                        if((hp<=0) && (b.hp <= 0))
-                        { 
-                            if (speed >= b.speed)
-                            {
-                                result = "win";
-                            }
-                            if (speed < b.speed)
-                            {
-                                result = "loose";
-                            }
-                        }
                         break;
                     case 2:
                         inv.affInventaire();
@@ -228,8 +206,27 @@ namespace projet
                     case 3:
                         break;
                 }
-            } while ((result != "win") || (result!= "loose") || (choice != 3));
-
+                if (hp <= 0)
+                {
+                    result = 2;
+                }
+                if (b.hp <= 0)
+                {
+                    result = 1;
+                }
+                if ((hp <= 0) && (b.hp <= 0))
+                {
+                    if (speed >= b.speed)
+                    {
+                        result = 1;
+                    }
+                    if (speed < b.speed)
+                    {
+                        result = 2;
+                    }
+                }
+            } while ((choice != 3) && (result == 0) );
+            Console.WriteLine("gg");
             return result;
         }
         public void damage_boss(Boss boss)

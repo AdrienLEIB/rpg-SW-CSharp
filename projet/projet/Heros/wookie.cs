@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class wookie:Personnage
+    class wookie:Joueur
     {
         public wookie(string n):base(n)
         {

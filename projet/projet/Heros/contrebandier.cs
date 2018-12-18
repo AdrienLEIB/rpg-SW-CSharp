@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class contrebandier:Personnage
+    class contrebandier:Joueur
     {
         public contrebandier(string n):base(n)
         {

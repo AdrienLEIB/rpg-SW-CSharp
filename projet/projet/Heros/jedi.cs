@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projet
 {
-    class jedi:Personnage
+    class jedi:Joueur
     {
         public jedi(string n):base(n)
         {

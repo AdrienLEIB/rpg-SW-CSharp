@@ -40,6 +40,7 @@ namespace projet
             while (result > max || result < min)
             {
                 result = int.Parse(Console.ReadLine());
+                
             }
             return result;
 

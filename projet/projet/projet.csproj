@@ -55,7 +55,7 @@
     <Compile Include="Item\Item.cs" />
     <Compile Include="Heros\jedi.cs" />
     <Compile Include="Map\Map.cs" />
-    <Compile Include="Joueur\Personnage.cs" />
+    <Compile Include="Joueur\Joueur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Heros\wookie.cs" />

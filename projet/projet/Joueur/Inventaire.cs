@@ -16,6 +16,7 @@ namespace projet
             item = new List<Item>();
             Item test = new arme();
             item.Add(test);
+            
         }
         public void addInventaire(Item i)
         {

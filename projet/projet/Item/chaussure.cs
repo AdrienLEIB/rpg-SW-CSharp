@@ -12,13 +12,13 @@ namespace projet
         public ChaussureType type;
         public chaussure(string n):base(n)
         {
-            if(n =="basket")
+            if(n=="basket")
             {
                 name = n;
                 value = 200;
                 prix = 10;
             }
-            if(n=="converse")
+            else if(n=="converse")
             {
                 name = n;
                 value = 500;

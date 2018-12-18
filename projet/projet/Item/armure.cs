@@ -20,7 +20,7 @@ namespace projet
                 prix = 100;
 
             }
-            if( n== "fer")
+            else if( n== "fer")
             {
                 name = n;
                 id = 1;

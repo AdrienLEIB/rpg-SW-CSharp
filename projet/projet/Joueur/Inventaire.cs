@@ -10,7 +10,6 @@ namespace projet
     {
         
         public List<Item> item;
-        public int taille;
         public Inventaire()
         {
             item = new List<Item>();
@@ -69,11 +68,8 @@ namespace projet
                     nb++;
                 }
             }
-            UseInventaire();
+            Console.WriteLine(nb + " - Quitter ?");
         }
-        public void UseInventaire()
-        {
-            Console.ReadLine();
-        }
+
     }
 }

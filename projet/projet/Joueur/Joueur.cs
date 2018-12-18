@@ -51,7 +51,6 @@ namespace projet
             Boss vador = new Vador();
 
 
-
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
                     Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
                     dep = Program.AskChoice(0, 5);
@@ -145,6 +144,20 @@ namespace projet
                         break;
                     case 4:
                         inv.affInventaire();
+                        int j = Program.AskChoice(0,inv.item.Count+1);
+                        if(j<=inv.item.Count)
+                        { 
+                            Console.WriteLine("Voulez-vous vous équiper de " +inv.item[j-1].name  +  "\n 1- Oui \n 2- Nom");
+                            int use = Program.AskChoice(1,2);
+                            if (use==1)
+                            {
+                                equip.addEquip(inv.item[j-1]);
+                                atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                                def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                                speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                            }
+                        }
+                        
                         break;
                     case 5:
                         Console.Clear();
@@ -316,10 +329,10 @@ namespace projet
                 xp = xp_save  - xp;
                 lvl = lvl + 1;
                 xp_save = xp_save * (lvl + 1);
-                atk = atk + (atk_base * (lvl+1)) + equip.equipement[1].value;
-                def = def + (def_base * (lvl + 1)) + equip.equipement[2].value;
-                hp = hp + (hp_base * (lvl + 1)) + equip.equipement[1].value;
-                speed = speed + (speed_base * (lvl + 1));
+                atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                hp = (hp_base * (lvl + 1));
             }
         }
         public void information()

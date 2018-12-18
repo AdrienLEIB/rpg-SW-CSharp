@@ -20,8 +20,8 @@ namespace projet
             item.Add(sabrelaser);
 
             name = "pistolet laser";
-            Item pistolerlaser = new arme(name);
-            item.Add(pistolerlaser);
+            Item pistoletlaser = new arme(name);
+            item.Add(pistoletlaser);
 
             name = "diamant";
             Item diamant = new armure(name);

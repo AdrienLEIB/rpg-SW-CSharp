@@ -28,7 +28,7 @@ namespace projet
         {
             for (int i = 0; i < equipement.Length; i++)
             {
-                if(i==item.id)
+                if(i==(item.id-1))
                 {
                     equipement[i] = item;
                 }

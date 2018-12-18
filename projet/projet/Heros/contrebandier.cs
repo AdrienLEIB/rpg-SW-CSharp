@@ -10,18 +10,17 @@ namespace projet
     {
         public contrebandier(string n):base(n)
         {
-            hp = 150;
-            atk = 75;
-            def = 50;
-            speed = 75;
+            hp_base = 150;
+            atk_base = 75;
+            def_base = 50;
+            speed_base = 75;
             money = money + 1000;
 
-            hp_base = hp;
-            atk_base = atk;
-            def_base = def;
-            speed_base = speed;
 
-
+            atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+            def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+            speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+            hp = (hp_base * (lvl + 1));
         }
     }
 }

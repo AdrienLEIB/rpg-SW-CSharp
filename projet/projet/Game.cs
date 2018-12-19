@@ -97,7 +97,7 @@ namespace projet
 |         .           `8 |
 |________/_\___________8_|
 
-                                    Continuer ->
+                                Continuer ->
 
 ");
 ;
@@ -130,7 +130,7 @@ namespace projet
 
                                     Continuer ->
 ");
-            Console.WriteLine("Continuer ->");
+
             Console.ReadLine();
 
             Console.ForegroundColor = ConsoleColor.White;

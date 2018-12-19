@@ -10,9 +10,9 @@ namespace projet
     {
         public wookie(string n):base(n)
         {
-            hp_base = 200;
-            atk_base = 125;
-            def_base = 75;
+            hp_base = 250;
+            atk_base = 100;
+            def_base = 250;
             speed_base = 100;
 
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;

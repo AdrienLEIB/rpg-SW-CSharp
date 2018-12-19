@@ -63,7 +63,7 @@ namespace prolet
             if ((l == 20) && (L == 2))
             {
                 Type = Lieu.Indice;
-                color = ConsoleColor.DarkGray;
+                color = ConsoleColor.DarkMagenta;
                 symbole = "Օ";
             }
 

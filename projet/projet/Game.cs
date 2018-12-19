@@ -17,12 +17,121 @@ namespace projet
             Introduction();
             Map world = new Map(5, 30);
             Boolean indice = false;
-            Console.WriteLine("Quel est t'on nom?");
+            Console.WriteLine("Nom du joueur ?");
             string name = Console.ReadLine();
             int resultat = 0;
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine(@"
+|  ,.------;:~~:-.      |   1- Un wookie
+| /:.\`;;|||;:/;;:\     |   Avantage:
+|:')\`:\||::/.-_':/)    |       +Def/hp
+|`:`\\\ ;'||'.''/,.:\   |
+|==`;.:`|;::/'/./';;=   |
+|:-/-%%% | |%%%;;_- _:  |
+|=// %wm)..(mw%`_ :`:\  |
+|;;--', /88\ -,- :-~~|  |
+|-;~~::'`~^~:`::`/`-=:) |
+|(;':)%%%' `%%%.`:``:)\ |
+|(\ %%%/dV##Vb`%%%%:`-. |
+| |);/( ;~~~~ :)\`;;.``\|
+| //\'/,/|;;|:(: |.|\;|\|
+|/) |(/ | / \|\\`( )- ` |
+|;):):)/.):|/) (`:`\\`-`|
+|;%/ //;/(\`.':| ::`\\;`|
+|;/~( \|./;)|.|):;\. \\-|
+|/',:\//) ||`.|| (:\)):%|
+|,|/;/(%;.||| (|(\:- ; :|
+|_%__%:__;_:`_;_:_.\%_`_|
+
+");
+            Thread.Sleep(2000);
+            Console.Clear();
+            Console.WriteLine(@"
+|      .x%%%%%%x.         |     2 - Un contrebandier
+|     ,%%%%%%%%%%%        |     Avangtage :
+|    ,%%%'  )'  \%        |         * Gagne 4 fois plus d'argent par combat
+|   ,%x%) __   _ Y        |         + money
+|   :%%% ~=-. <=~|        |         
+|   :%%::. .:,\  |        |
+|   `;%:`\. `-' .'        |
+|    ``x`. -===-;         |
+|     / `:`.__.;          |
+|  .d8b.  :: ..`.         |
+| d88888b.  '  /8         |
+|d888888888b. ( 8b       /|
+|~   ~`888888b  `8b     /:|
+|  ' ' `888888   `8. _ /:/|
+|'      )88888b   8b |):X |
+|   ~ - |888888   `8b/:/:\|
+|       |888888    88\/~~;|
+|       (888888b   88|  / |
+|\       \888888   8-:   /|
+|_\_______\88888_.'___\__/|
+");
+            Thread.Sleep(2000);
+            Console.Clear();
+
+            Console.WriteLine(@"
+|        .......       LS|          3 - Un Jedi
+|      ::::::;;::.       |          Avantage :
+|    .::;::::;::::.      |             * Attaque deux fois par combat
+|   .::::::::::::::      |             * + Atk/Speed
+|   ::`_```_```;:::.     |
+|   ::=-) :=-`  ::::     |
+| `::|  / :     `:::     |
+|   '|  `~'     ;:::     |
+|    :-:==-.   / :'      |
+|    `. _    .'.d8:      |
+| _.  |88bood88888._     |
+|~  `-+8888888888P  `-. _|
+|-'     ~~^^^^~~  `./8 ~ |
+|8b /  /  |   \  \  `8   |
+|P        `          8   |
+|                    8b  |
+|                    `8  |
+|                     8b |
+|         .           `8 |
+|________/_\___________8_|
+
+
+
+");
+
+            Console.WriteLine("Continuer ->");
+            Console.ReadLine();
+            Console.Clear();
             Console.WriteLine("\n Quel héros souhaites-tu incarner? \n 1- Un wookie \n 2- Un contrebandier \n 3- Un Jedi");
             int heros_want = Program.AskChoice(1, 3);
+            Console.Clear();
+            Console.WriteLine(@"
+             _     _
+            /_|   |_\
+           //||   ||\\
+          // ||   || \\
+         //  ||___||  \\
+        /     |   |     \    _
+       /    __|   |__    \  /_\
+      / .--~  |   |  ~--. \|   |
+     /.~ __\  |   |  /   ~.|   |
+    .~  `=='\ |   | /   _.-'.  |
+   /  /      \|   |/ .-~    _.-'
+  |           +---+  \  _.-~  |
+  `=----.____/  #  \____.----='
+   [::::::::|  (_)  |::::::::]
+  .=----~~~~~\     /~~~~~----=.
+  |          /`---'\          |
+   \  \     /       \     /  /
+    `.     /         \     .'
+      `.  /._________.\  .'
+        `--._________.--'     Vous embarquez dans le faucon millenium direction l'etoile de la mort ... 
+");
+            Console.WriteLine("Continuer ->");
+            Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
+
             switch (heros_want)
             {
                 case 1:
@@ -56,7 +165,21 @@ namespace projet
                 if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Planet)
                 {
                     Boss storm = new Stormtrooper(heros);
-                    heros.Combat_storm(storm);
+                    int storm_result = heros.Combat_storm(storm);
+                    if (storm_result==2)
+                    {
+                        heros.x = 1;
+                        heros.y = 1;
+                        Console.WriteLine("Vous avez perdu contre un stormtrooper... Retour au spawn.Vous perdez 100 euros \n Continuer ->");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    else{
+                        Console.WriteLine("Vous avez gagné !");
+                        Console.WriteLine("Il va falloir que J'avertisse Maitre Vador de la force de ce petit gamin... \n Continuer ->");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
 
                 }
                 if (world.Plateau[heros.x, heros.y].Type == Case.Lieu.Spawn)
@@ -131,22 +254,22 @@ ________________[_]_[_]_[_]________/_]_[_\_________________________
             Console.Clear();
             Console.WriteLine(@"
 
-                               _________________      ____         __________
-                 .       .    /                 |    /    \    .  |          \
-                     .       /    ______   _____| . /      \      |    ___    |     .     .
-                             \    \    |   |       /   /\   \     |   |___>   |
-                           .  \    \   |   |      /   /__\   \  . |         _/             .
-                 .     ________>    |  |   | .   /            \   |   |\    \_______    .
-                      |            /   |   |    /    ______    \  |   | \           |
-                      |___________/    |___|   /____/      \____\ |___|  \__________|    .
-                  .     ____    __  . _____   ____      .  __________   .  _________
-                       \    \  /  \  /    /  /    \       |          \    /         |      .
-                        \    \/    \/    /  /      \      |    ___    |  /    ______|  .
-                         \              /  /   /\   \ .   |   |___>   |  \    \
-                   .      \            /  /   /__\   \    |         _/.   \    \
-                           \    /\    /  /            \   |   |\    \______>    |   .
-                            \  /  \  /  /    ______    \  |   | \              /          .
-                 .       .   \/    \/  /____/      \____\ |___|  \____________/  
+                                   _________________      ____         __________
+                     .       .    /                 |    /    \    .  |          \
+                         .       /    ______   _____| . /      \      |    ___    |     .     .
+                                 \    \    |   |       /   /\   \     |   |___>   |
+                               .  \    \   |   |      /   /__\   \  . |         _/             .
+                     .     ________>    |  |   | .   /            \   |   |\    \_______    .
+                          |            /   |   |    /    ______    \  |   | \           |
+                          |___________/    |___|   /____/      \____\ |___|  \__________|    .
+                      .     ____    __  . _____   ____      .  __________   .  _________
+                           \    \  /  \  /    /  /    \       |          \    /         |      .
+                            \    \/    \/    /  /      \      |    ___    |  /    ______|  .
+                             \              /  /   /\   \ .   |   |___>   |  \    \
+                       .      \            /  /   /__\   \    |         _/.   \    \
+                               \    /\    /  /            \   |   |\    \______>    |   .
+                                \  /  \  /  /    ______    \  |   | \              /          .
+                     .       .   \/    \/  /____/      \____\ |___|  \____________/  
 ");
             Thread.Sleep(2500);
             Console.Clear();
@@ -213,7 +336,6 @@ ________________[_]_[_]_[_]________/_]_[_\_________________________
                 }
             
         }
-
         public static void afficheScenario(List<String> sce)
         {
             while(sce.Count >5)

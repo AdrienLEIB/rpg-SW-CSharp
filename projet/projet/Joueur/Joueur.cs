@@ -167,7 +167,7 @@ namespace projet
                         break;
                 }
         }
-        public int Combat(Boss b)
+        public virtual int Combat(Boss b)
         {
             int result = 0;
             Console.WriteLine("Un Dark Vador sauvage apparaît !");
@@ -175,6 +175,7 @@ namespace projet
             int choice = 0;
             do
             {
+                Console.Clear();
                 Console.WriteLine(@"                       .-.
                            .-.
                           |_:_|
@@ -235,16 +236,19 @@ namespace projet
                         result = 2;
                     }
                 }
-            } while ((choice != 3) && (result == 0) );
-            Console.WriteLine("gg");
+            } while ((choice != 3) && (result == 0) );;
             return result;
         }
-        public int Combat_storm(Boss b)
+        public virtual int Combat_storm(Boss b)
         {
             int result = 0;
             int choice;
             Console.Clear();
-            Console.WriteLine(@"
+
+
+            do {
+                Console.Clear();
+                Console.WriteLine(@"
                          /__\ 
                         |<><>| 
                         (_/\_)   
@@ -257,9 +261,7 @@ namespace projet
                         [ ][ ]   \
                         | || |     \ 
                         [_][_]        ");
-
-            do { 
-            Console.WriteLine(b.hp + " PV");
+                Console.WriteLine(b.hp + " PV");
             Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir");
             choice = Program.AskChoice(1, 3);
             
@@ -278,10 +280,12 @@ namespace projet
             if (hp <= 0)
             {
                 result = 2;
+                money = money - 100;
             }
             if (b.hp <= 0)
             {
                 result = 1;
+                money = money + 100;
                 experience();
             }
             if ((hp <= 0) && (b.hp <= 0))
@@ -289,14 +293,16 @@ namespace projet
                 if (speed >= b.speed)
                 {
                     result = 1;
+                    money = money + 100;
                 }
                 if (speed < b.speed)
                 {
                     result = 2;
+                    money = money - 100;
                 }
             }
+                
         } while ((choice != 3) && (result == 0) );
-            Console.WriteLine("gg");
             return result;
         }
         public void damage_boss(Boss boss)

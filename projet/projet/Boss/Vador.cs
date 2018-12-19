@@ -10,10 +10,10 @@ namespace projet
     {
         public Vador():base()
         {
-            hp = 10;
-            atk = 2;
-            def = 2;
-            speed = 2;
+            hp = 2000;
+            atk = 2000;
+            def = 2000;
+            speed = 2000;
                 
         }
     }

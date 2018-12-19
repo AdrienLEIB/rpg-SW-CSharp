@@ -36,7 +36,9 @@ namespace projet
         public static int AskChoice(int min, int max)
         {
             // on transforme le string en int
-            int result = int.Parse(Console.ReadLine());
+            //int result = int.Parse(Console.ReadLine());
+
+            int.TryParse(Console.ReadLine(), out int result);
             while (result > max || result < min)
             {
                 result = int.Parse(Console.ReadLine());

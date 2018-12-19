@@ -8,7 +8,7 @@ namespace prolet
 {
     class Case
     {
-        public enum Lieu { Planet, Hero, Shop, Boss,Spawn,Vide}
+        public enum Lieu { Planet, Hero, Shop, Boss,Spawn,Vide, Indice}
         // public Monster m;
        // public Equipement Item;
         public Case Hero;
@@ -62,7 +62,7 @@ namespace prolet
             //}
             if ((l == 20) && (L == 2))
             {
-                Type = Lieu.Planet;
+                Type = Lieu.Indice;
                 color = ConsoleColor.DarkGray;
                 symbole = "Օ";
             }

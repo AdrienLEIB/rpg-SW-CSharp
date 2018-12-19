@@ -44,8 +44,9 @@ namespace projet
 |,|/;/(%;.||| (|(\:- ; :|
 |_%__%:__;_:`_;_:_.\%_`_|
 
+                                Continuer ->
 ");
-            Thread.Sleep(2000);
+            Console.ReadLine();
             Console.Clear();
             Console.WriteLine(@"
 |      .x%%%%%%x.         |     2 - Un contrebandier
@@ -68,8 +69,10 @@ namespace projet
 |       (888888b   88|  / |
 |\       \888888   8-:   /|
 |_\_______\88888_.'___\__/|
+
+                                Continuer ->
 ");
-            Thread.Sleep(2000);
+            Console.ReadLine();
             Console.Clear();
 
             Console.WriteLine(@"
@@ -94,11 +97,10 @@ namespace projet
 |         .           `8 |
 |________/_\___________8_|
 
-
+                                    Continuer ->
 
 ");
-
-            Console.WriteLine("Continuer ->");
+;
             Console.ReadLine();
             Console.Clear();
             Console.WriteLine("\n Quel héros souhaites-tu incarner? \n 1- Un wookie \n 2- Un contrebandier \n 3- Un Jedi");
@@ -124,7 +126,9 @@ namespace projet
    \  \     /       \     /  /
     `.     /         \     .'
       `.  /._________.\  .'
-        `--._________.--'     Vous embarquez dans le faucon millenium direction l'etoile de la mort ... 
+        `--._________.--'     Vous embarquez dans le faucon millenium direction l'etoile de la mort ...
+
+                                    Continuer ->
 ");
             Console.WriteLine("Continuer ->");
             Console.ReadLine();
@@ -222,10 +226,11 @@ ________________[_]_[_]_[_]________/_]_[_\_________________________
           \  .  . : .  .  /   .                                .
 .      .   \._........._./  .        .                   .
               -..___..-                .         .
+Vous ne pouvez pas entrer dans l'étoile de la mort sans indices !
 
+                                Continuer ->
 ");
-                        Console.WriteLine("Vous ne pouvez pas entrer dans l'étoile de la mort sans indices !");
-                        Thread.Sleep(1500);
+                        Console.ReadLine();
                     }
                     else
                     { 
@@ -241,8 +246,51 @@ ________________[_]_[_]_[_]________/_]_[_\_________________________
                 Console.Clear();
                 //world.affMap(heros);
             }
-            Console.WriteLine("GG");
-            Console.ReadLine();
+
+            if(resultat ==1)
+            {
+                Console.Clear();
+                Console.WriteLine(@"
+           _.-'~~~~~~`-._
+          /      ||      \
+         /       ||       \
+        |        ||        |
+        | _______||_______ |
+        |/ ----- \/ ----- \|
+       /  (     )  (     )  \
+      / \  ----- () -----  / \
+     /   \      /||\      /   \
+    /     \    /||||\    /     \
+   /       \  /||||||\  /       \
+  /_        \o========o/        _\
+    `--...__|`-._  _.-'|__...--'
+            |    `'    |             
+");
+                Console.Write(heros.name + " je suis ton Pere ....");
+                Thread.Sleep(2500);
+                Console.Clear();
+                Console.WriteLine(@"
+ _______ .__   __.  _______  
+|   ____||  \ |  | |       \ 
+|  |__   |   \|  | |  .--.  |
+|   __|  |  . `  | |  |  |  |
+|  |____ |  |\   | |  '--'  |
+|_______||__| \__| |_______/ 
+                             
+");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine(@"
+
+.______    _______ .______       _______   __    __  
+|   _  \  |   ____||   _  \     |       \ |  |  |  | 
+|  |_)  | |  |__   |  |_)  |    |  .--.  ||  |  |  | 
+|   ___/  |   __|  |      /     |  |  |  ||  |  |  | 
+|  |      |  |____ |  |\  \----.|  '--'  ||  `--'  | 
+| _|      |_______|| _| `._____||_______/  \______/ ");
+            }
         }
         public static void Introduction()
         {

@@ -162,7 +162,8 @@ namespace projet
                     case 5:
                         Console.Clear();
                         information();
-                        Thread.Sleep(5000);
+                    Console.WriteLine(@"                                Continuer ->");
+                        Console.ReadLine();
                         Console.Clear();
                         break;
                 }

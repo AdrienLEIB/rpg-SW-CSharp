@@ -20,9 +20,12 @@ namespace projet
                     Game new_game = new Game();
                     break;
                 case 2:
+                    Console.Clear();
                     Save save = new Save();
                     break;
                 case 3:
+                    Console.WriteLine("Ce jeu a été crée par  Adrien Leib");
+                    Console.ReadLine();
                     break;
                 case 4:
 
@@ -42,7 +45,7 @@ namespace projet
             int.TryParse(Console.ReadLine(), out int result);
             while (result > max || result < min)
             {
-                result = int.Parse(Console.ReadLine());
+               int.TryParse(Console.ReadLine(), out result);
                 
             }
             return result;

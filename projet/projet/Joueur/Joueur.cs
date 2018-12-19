@@ -448,14 +448,14 @@ namespace projet
 
             String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-            using (StreamWriter sw = new StreamWriter(path + @"\load_heros.txt", true))
+            using (StreamWriter sw = new StreamWriter(path + @"\load_heros.txt", false))
             {
                 sw.WriteLine();
                 sw.WriteLine(name);
                 sw.WriteLine(heros);
                 sw.WriteLine(indice);
             }
-            using (StreamWriter sw = new StreamWriter(path + @"\load_save.txt", true))
+            using (StreamWriter sw = new StreamWriter(path + @"\load_save.txt", false))
             {
                 sw.WriteLine();
                 sw.WriteLine(lvl);
@@ -469,7 +469,7 @@ namespace projet
                 //sw.WriteLine(equip);
 
             }
-            using (StreamWriter sw = new StreamWriter(path + @"\load_inventaire.txt", true))
+            using (StreamWriter sw = new StreamWriter(path + @"\load_inventaire.txt", false))
             {
                 for (int i = 0; i < inv.item.Count; i++)
                 {
@@ -477,7 +477,7 @@ namespace projet
                 }
 
             }
-            using (StreamWriter sw = new StreamWriter(path + @"\load_equip.txt", true))
+            using (StreamWriter sw = new StreamWriter(path + @"\load_equip.txt", false))
             {
                 sw.WriteLine(equip.equipement[0].name);
                 sw.WriteLine(equip.equipement[1].name);
@@ -488,7 +488,7 @@ namespace projet
         public void loadSave()
         {
             String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (StreamReader sr = new StreamReader(path + @"\load_save.txt", true))
+            using (StreamReader sr = new StreamReader(path + @"\load_save.txt"))
             {
                 int count = 0;
                 string l1;
@@ -509,7 +509,7 @@ namespace projet
                 symbole = tab[5];
                 money = float.Parse(tab[6]);
             }
-            using (StreamReader sr = new StreamReader(path + @"\load_inventaire.txt", true))
+            using (StreamReader sr = new StreamReader(path + @"\load_inventaire.txt"))
             {
                 int count = 0;
                 string l1;
@@ -536,7 +536,7 @@ namespace projet
 
                 }
             }
-            using (StreamReader sr = new StreamReader(path + @"\load_equip.txt", true))
+            using (StreamReader sr = new StreamReader(path + @"\load_equip.txt"))
             {
                 int count = 0;
                 string l1;

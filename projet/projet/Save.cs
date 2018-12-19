@@ -20,7 +20,7 @@ namespace projet
             bool indice;
             string type_heros;
             String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            using (StreamReader sr = new StreamReader(path + @"\load_heros.txt", true))
+            using (StreamReader sr = new StreamReader(path + @"\load_heros.txt"))
             {
                 int count = 0;
                 string l1;

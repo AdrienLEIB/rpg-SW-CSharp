@@ -68,6 +68,19 @@ namespace projet
                         break;
                     case 2:
                         inv.affInventaire();
+                        int j = Program.AskChoice(0, inv.item.Count + 1);
+                        if (j <= inv.item.Count)
+                        {
+                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                            int use = Program.AskChoice(1, 2);
+                            if (use == 1)
+                            {
+                                equip.addEquip(inv.item[j - 1]);
+                                atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                                def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                                speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                            }
+                        }
                         break;
                     case 3:
                         break;
@@ -129,6 +142,19 @@ namespace projet
                         break;
                     case 2:
                         inv.affInventaire();
+                        int j = Program.AskChoice(0, inv.item.Count + 1);
+                        if (j <= inv.item.Count)
+                        {
+                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                            int use = Program.AskChoice(1, 2);
+                            if (use == 1)
+                            {
+                                equip.addEquip(inv.item[j - 1]);
+                                atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                                def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                                speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                            }
+                        }
                         break;
                     case 3:
                         break;

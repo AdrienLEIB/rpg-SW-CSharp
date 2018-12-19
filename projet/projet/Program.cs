@@ -20,6 +20,7 @@ namespace projet
                     Game new_game = new Game();
                     break;
                 case 2:
+                    Save save = new Save();
                     break;
                 case 3:
                     break;

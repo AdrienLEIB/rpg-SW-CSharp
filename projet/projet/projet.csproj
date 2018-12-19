@@ -62,6 +62,7 @@
     <Compile Include="Boss\Stormtrooper.cs" />
     <Compile Include="Boss\Vador.cs" />
     <Compile Include="Item\Shop.cs" />
+    <Compile Include="Save.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

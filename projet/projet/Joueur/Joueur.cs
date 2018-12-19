@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-
+using System.IO;
 namespace projet
 {
         abstract class Joueur
@@ -52,75 +52,75 @@ namespace projet
 
 
                 if ((x>=1)&&(x<4)  && (y >= 1) &&(y<29)) { 
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
-                    dep = Program.AskChoice(0, 5);
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
+                    dep = Program.AskChoice(0, 6);
                 }
                 if ((x == 0)&&(x<4) && (y >0) &&(y<29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
-                    dep = Program.AskChoice(1, 5);
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
+                    dep = Program.AskChoice(1, 6);
                 }
 
                 if ((x > 0) && (x == 4) && (y > 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while (dep == 1);
 
                 }
                 if ((x > 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while (dep ==3);
                 }
 
                 if ((x > 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while (dep == 2);
                 }
 
                 if ((x == 0) && (x < 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller :  \n 1-Sud \n 2-Est \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while ((dep == 0) || (dep == 3));
 
                 }
                 if ((x == 0) && (x < 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 1-Sud \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while ((dep == 0) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y > 0) && (y == 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest \n 4-Inventaire 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 3-Ouest \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while ((dep == 1) || (dep == 2));
 
                 }
                 if ((x > 0) && (x == 4) && (y == 0) && (y < 29))
                 {
-                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 4-Inventaire \n 5-Information");
+                    Console.WriteLine("\n Vous souhaitez aller : \n 0-Nord \n 2-Est \n 4-Inventaire \n 5-Information \n 6-Save");
                     do
                     {
-                        dep = Program.AskChoice(0, 5);
+                        dep = Program.AskChoice(0, 6);
                     } while ((dep == 1) || (dep == 3));
 
                 }
@@ -162,16 +162,21 @@ namespace projet
                     case 5:
                         Console.Clear();
                         information();
-                    Console.WriteLine(@"                                Continuer ->");
+                        Console.WriteLine(@"                                Continuer ->");
                         Console.ReadLine();
                         Console.Clear();
                         break;
+                    case 6:
+                        save();
+                        break;
+
                 }
         }
         public virtual int Combat(Boss b)
         {
             int result = 0;
             Console.WriteLine("Un Dark Vador sauvage apparaît !");
+            Thread.Sleep(1000);
             Console.Clear();
             int choice = 0;
             do
@@ -214,6 +219,19 @@ namespace projet
                         break;
                     case 2:
                         inv.affInventaire();
+                        int j = Program.AskChoice(0, inv.item.Count + 1);
+                        if (j <= inv.item.Count)
+                        {
+                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                            int use = Program.AskChoice(1, 2);
+                            if (use == 1)
+                            {
+                                equip.addEquip(inv.item[j - 1]);
+                                atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                                def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                                speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                            }
+                        }
                         break;
                     case 3:
                         break;
@@ -274,7 +292,20 @@ namespace projet
                     break;
                 case 2:
                     inv.affInventaire();
-                    break;
+                    int j = Program.AskChoice(0, inv.item.Count + 1);
+                    if (j <= inv.item.Count)
+                    {
+                        Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                        int use = Program.AskChoice(1, 2);
+                        if (use == 1)
+                        {
+                            equip.addEquip(inv.item[j - 1]);
+                            atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+                            def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+                            speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
+                        }
+                    }
+                        break;
                 case 3:
                     break;
             }
@@ -352,6 +383,91 @@ namespace projet
             Console.WriteLine("Speed " + speed);
             Console.WriteLine("XP " + xp);
             Console.WriteLine("Monnai " + money);
+        }
+
+        public void save()
+        {
+
+            String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (StreamWriter sw = new StreamWriter(path + @"\load_save.txt", true))
+            {
+
+                sw.WriteLine(lvl);
+                sw.WriteLine(xp);
+                sw.WriteLine(xp_save);
+                sw.WriteLine(x);
+                sw.WriteLine(y);
+                sw.WriteLine(symbole);
+                sw.WriteLine(money);
+                //sw.WriteLine(inv);
+                //sw.WriteLine(equip);
+
+            }
+            using (StreamWriter sw = new StreamWriter(path + @"\load_inventaire.txt", true))
+            {
+                for (int i = 0; i < inv.item.Count; i++)
+                {
+                    sw.WriteLine(inv.item[i].name);
+                }
+
+            }
+        }
+
+        public void loadSave()
+        {
+            String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (StreamReader sr = new StreamReader(path + @"\load_save.txt", true))
+            {
+                int count = 0;
+                string l1;
+                sr.ReadLine();
+                string[] tab = new string[8];
+                while ((l1 = sr.ReadLine()) != null)
+                {
+                    tab[count] = l1;
+                    count++;
+                    
+
+                }
+                lvl = float.Parse(tab[0]);
+                xp = float.Parse(tab[1]);
+                xp_save = float.Parse(tab[2]);
+                x = int.Parse(tab[3]);
+                y = int.Parse(tab[4]);
+                symbole = tab[5];
+                money = float.Parse(tab[6]);
+            }
+            using (StreamReader sr = new StreamReader(path + @"\load_inventaire.txt", true))
+            {
+                int count = 0;
+                string l1;
+                string name;
+                sr.ReadLine();
+                while ((l1 = sr.ReadLine()) != null)
+                {
+                    name = l1;
+                    if ((name == "couteau") || (name == "pistolet laser") || (name == "sabrelaser"))
+                    {
+                        Item item = new arme(name);
+                        inv.addInventaire(item);
+                    }
+                    else if((name == "fer") || (name == "diamant"))
+                    {
+                        Item item = new armure(name);
+                        inv.addInventaire(item);
+                    }
+                    else if((name =="basket") || (name == "converse"))
+                    {
+                        Item item = new chaussure(name);
+                        inv.addInventaire(item);
+                    }
+
+                }
+            }
+
+            atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
+            def = (def_base * (lvl + 1)) + equip.equipement[0].value;
+            speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
         }
     }
 }

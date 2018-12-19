@@ -178,7 +178,7 @@ namespace projet
                         Console.ReadLine();
                         Console.Clear();
                     }
-                    else{
+                    else if(storm_result==1){
                         Console.WriteLine("Vous avez gagné !");
                         Console.WriteLine("Il va falloir que J'avertisse Maitre Vador de la force de ce petit gamin... \n Continuer ->");
                         Console.ReadLine();

@@ -29,7 +29,30 @@ namespace projet
         public  void affMap(Joueur heros)
         {
             Console.OutputEncoding = Encoding.Unicode;
-            
+            Console.WriteLine(" Legende :");
+            Console.Write("Shop :");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(", Rogue One :");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(", Planete :");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(", Boss :");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("═");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 0; i < 32; i++)
             {
                 Console.Write("-");
@@ -140,7 +163,7 @@ namespace projet
 
 ");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(" Un indice à l'enigme, chaque planete dans l'odre croissant est...");
+                Console.WriteLine(" chaque première lettre de chaque planete dans l'odre croissant est !,");
                 mdp = Console.ReadLine();
             if(mdp =="vador")
             {

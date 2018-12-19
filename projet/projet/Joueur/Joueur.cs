@@ -11,7 +11,8 @@ namespace projet
         abstract class Joueur
     {
         public string name;
-
+        public string heros;
+        public bool indice;
 
         public float lvl;
         public float xp;
@@ -34,6 +35,7 @@ namespace projet
         public Joueur(string n)
         {
             name = n;
+            indice = false;
             lvl = 0;
             xp = 0;
             xp_save = 10;
@@ -384,14 +386,78 @@ namespace projet
             Console.WriteLine("XP " + xp);
             Console.WriteLine("Monnai " + money);
         }
+        public  bool Indice()
+        {
+            string mdp = "";
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(@"
+                    ____
+                 _.' :  `._
+             .-.'`.  ;   .'`.-.
+    __      / : ___\ ;  /___ ; \      __
+  ,'_ ''--.:__;'.-.';: :'.-.':__;.--'' _`,
+  :' `.t''--.. ' <@.`; _  ',@>` ..--''j.' `;
+       `:-.._J '-.-'L__ `--' L_..-;'
+         '-.__ ;  .-'  '-.  : __.-'
+             L ' /.------.\ ' J
+              '-.   '--'   .-'
+             __.l'-:_JL_;-';.__
+          .- j / '.;  ;''''  / .'\'-.
+           .' /:`. '-.:     .-' .';  `.
+     .-'  / ;  ' -. '-..-'.- '  :    ' -.
+ 
+   .+ '-.  : :      ' -.__.- '      ;-._   \
+   ; \  `.; ;                    : : '+. ;
+  :  ; ; ;                    : ;  : \:
+ : `.'-; ;  ;                  :  ;   ,/;
+  ; -: ;  :                ;  : .-''  :
+  :\     \  : ;             : \.-'      :
+   ;`.    \  ; :            ;.'_..--  / ;
+   :  '-.  ' -:  ;          :/.'      .'  :
+     \       .-`.\        / t - ''  ':-+.   :
+      `.  .-'    `l    __/ /`. :  ; ; \  ;
+        \   .-' .-' -.- '  .' .'j \  /   ;/
+         \ / .- '   /.     .'.' ;_:'    ;
+          :-'' -.`./ -.'     /    `.___.'
+                \ `t._ / 
+                '-.t-._:'
 
+");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" chaque première lettre de chaque planete dans l'odre croissant est !,");
+            mdp = Console.ReadLine();
+            if (mdp == "vador")
+            {
+                Console.Clear();
+                Console.WriteLine(" Reusis, vous avez. Repartir avec la carte vous pouvez");
+                Thread.Sleep(1000);
+                indice = true;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Echoué vous avez. Revenir plus tard vous devez");
+                Thread.Sleep(1000);
+                indice = false;
+            }
+            return indice;
+        }
         public void save()
         {
 
             String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            using (StreamWriter sw = new StreamWriter(path + @"\load_heros.txt", true))
+            {
+                sw.WriteLine();
+                sw.WriteLine(name);
+                sw.WriteLine(heros);
+                sw.WriteLine(indice);
+            }
             using (StreamWriter sw = new StreamWriter(path + @"\load_save.txt", true))
             {
-
+                sw.WriteLine();
                 sw.WriteLine(lvl);
                 sw.WriteLine(xp);
                 sw.WriteLine(xp_save);
@@ -410,6 +476,12 @@ namespace projet
                     sw.WriteLine(inv.item[i].name);
                 }
 
+            }
+            using (StreamWriter sw = new StreamWriter(path + @"\load_equip.txt", true))
+            {
+                sw.WriteLine(equip.equipement[0].name);
+                sw.WriteLine(equip.equipement[1].name);
+                sw.WriteLine(equip.equipement[2].name);
             }
         }
 
@@ -464,7 +536,33 @@ namespace projet
 
                 }
             }
+            using (StreamReader sr = new StreamReader(path + @"\load_equip.txt", true))
+            {
+                int count = 0;
+                string l1;
+                string name;
+                sr.ReadLine();
+                while ((l1 = sr.ReadLine()) != null)
+                {
+                    name = l1;
+                    if ((name == "couteau") || (name == "pistolet laser") || (name == "sabrelaser"))
+                    {
+                        Item item = new arme(name);
+                        equip.equipement[1] = item;
+                    }
+                    else if ((name == "fer") || (name == "diamant"))
+                    {
+                        Item item = new armure(name);
+                        equip.equipement[2] = item;
+                    }
+                    else if ((name == "basket") || (name == "converse"))
+                    {
+                        Item item = new chaussure(name);
+                        equip.equipement[3] = item;
+                    }
 
+                }
+            }
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
             def = (def_base * (lvl + 1)) + equip.equipement[0].value;
             speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;

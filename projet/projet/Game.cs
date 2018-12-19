@@ -159,7 +159,7 @@ namespace projet
                 {
                     if (indice == false)
                     {
-                        indice = Map.Indice();
+                        indice = heros.Indice();
                     }
                     else
                     {

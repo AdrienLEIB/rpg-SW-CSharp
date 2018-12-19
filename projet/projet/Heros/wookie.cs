@@ -10,6 +10,7 @@ namespace projet
     {
         public wookie(string n):base(n)
         {
+            heros = "wookie";
             hp_base = 250;
             atk_base = 100;
             def_base = 250;

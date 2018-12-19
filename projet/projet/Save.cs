@@ -5,19 +5,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using prolet;
-
+using System.IO;
 namespace projet
 {
     class Save
     {
+        public Joueur heros;
         public Save()
         {
             Map world = new Map(5, 30);
             int resultat = 0;
             Boss Vador = new Vador();
-            bool indice = false;
+            string name;
+            bool indice;
+            string type_heros;
+            String path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            using (StreamReader sr = new StreamReader(path + @"\load_heros.txt", true))
+            {
+                int count = 0;
+                string l1;
+                sr.ReadLine();
+                string[] tab = new string[4];
+                while ((l1 = sr.ReadLine()) != null)
+                {
+                    tab[count] = l1;
+                    count++;
 
-            Joueur heros = new jedi("adrien");
+
+                }
+                name = tab[0];
+                indice = bool.Parse(tab[2]);
+                type_heros = tab[1];
+
+            }
+            if (type_heros == "jedi")
+            {
+                heros = new jedi(name);
+            }
+            else if (type_heros == "wookie")
+            {
+                heros = new wookie(name);
+            }
+            else if(type_heros == "contrebandier")
+            {
+                heros = new contrebandier(name);
+            }
+            else
+            {
+                Console.WriteLine("Erreur aucun heros");
+            }
 
             heros.loadSave();
 
@@ -30,7 +66,7 @@ namespace projet
                 {
                     if (indice == false)
                     {
-                        indice = Map.Indice();
+                        indice = heros.Indice();
                     }
                     else
                     {

@@ -10,6 +10,7 @@ namespace projet
     {
         public contrebandier(string n):base(n)
         {
+            heros = "contrebandier";
             hp_base = 150;
             atk_base = 100;
             def_base = 100;

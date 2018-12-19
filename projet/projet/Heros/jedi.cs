@@ -10,6 +10,7 @@ namespace projet
     {
         public jedi(string n):base(n)
         {
+            heros = "jedi";
             hp_base = 150;
             atk_base = 250;
             def_base = 100;

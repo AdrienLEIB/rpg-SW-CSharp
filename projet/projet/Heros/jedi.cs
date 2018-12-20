@@ -11,10 +11,10 @@ namespace projet
         public jedi(string n):base(n)
         {
             heros = "jedi";
-            hp_base = 15000;
-            atk_base = 25000;
-            def_base = 10000;
-            speed_base = 25000;
+            hp_base = 150;
+            atk_base = 250;
+            def_base = 100;
+            speed_base = 250;
 
 
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
@@ -59,8 +59,8 @@ namespace projet
               / ___.-/ _ | -'   \  \
                              '-'");
                 Console.WriteLine(b.hp + " PV");
-                Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir");
-                choice = Program.AskChoice(1, 3);
+                Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir \n 4- Information");
+                choice = Program.AskChoice(1, 4);
                 switch (choice)
                 {
                     case 1:
@@ -71,14 +71,14 @@ namespace projet
                     case 2:
 
                         inv.affInventaire();
-                        int j = Program.AskChoice(0, inv.item.Count + 1);
-                        if (j <= inv.item.Count)
+                        int j = Program.AskChoice(0, inv.item.Count);
+                        if (j < inv.item.Count)
                         {
-                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j].name + "\n 1- Oui \n 2- Nom");
                             int use = Program.AskChoice(1, 2);
                             if (use == 1)
                             {
-                                equip.addEquip(inv.item[j - 1]);
+                                equip.addEquip(inv.item[j]);
                                 atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
                                 def = (def_base * (lvl + 1)) + equip.equipement[0].value;
                                 speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
@@ -86,6 +86,13 @@ namespace projet
                         }
                         break;
                     case 3:
+                        break;
+                    case 4:
+                        Console.Clear();
+                        information();
+                        Console.WriteLine(@"                                Continuer ->");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                 }
                 if (hp <= 0)
@@ -134,8 +141,8 @@ namespace projet
                         | || |     \ 
                         [_][_]        ");
                 Console.WriteLine(b.hp + " PV");
-                Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir");
-                choice = Program.AskChoice(1, 3);
+                Console.WriteLine("Vous souhaitez : \n 1- Attaquer \n 2- Inventaire \n 3- Fuir \n -4 Information ");
+                choice = Program.AskChoice(1, 4);
 
                 switch (choice)
                 {
@@ -146,14 +153,14 @@ namespace projet
                         break;
                     case 2:
                         inv.affInventaire();
-                        int j = Program.AskChoice(0, inv.item.Count + 1);
-                        if (j <= inv.item.Count)
+                        int j = Program.AskChoice(0, inv.item.Count);
+                        if (j < inv.item.Count)
                         {
-                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j - 1].name + "\n 1- Oui \n 2- Nom");
+                            Console.WriteLine("Voulez-vous vous équiper de " + inv.item[j].name + "\n 1- Oui \n 2- Nom");
                             int use = Program.AskChoice(1, 2);
                             if (use == 1)
                             {
-                                equip.addEquip(inv.item[j - 1]);
+                                equip.addEquip(inv.item[j]);
                                 atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
                                 def = (def_base * (lvl + 1)) + equip.equipement[0].value;
                                 speed = (speed_base * (lvl + 1)) + equip.equipement[2].value;
@@ -161,6 +168,13 @@ namespace projet
                         }
                         break;
                     case 3:
+                        break;
+                    case 4:
+                        Console.Clear();
+                        information();
+                        Console.WriteLine(@"                                Continuer ->");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                 }
                 if (hp <= 0)

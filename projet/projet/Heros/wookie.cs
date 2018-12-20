@@ -11,10 +11,10 @@ namespace projet
         public wookie(string n):base(n)
         {
             heros = "wookie";
-            hp_base = 25000;
-            atk_base = 10000;
-            def_base = 25000;
-            speed_base = 10000;
+            hp_base = 250;
+            atk_base = 100;
+            def_base = 250;
+            speed_base = 100;
 
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
             def = (def_base * (lvl + 1)) + equip.equipement[0].value;

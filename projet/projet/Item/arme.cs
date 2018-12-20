@@ -14,7 +14,7 @@ namespace projet
             if (n == "sabrelaser") { 
                 name = n;
                 value = 5000;
-                prix = 1000;
+                prix = 4000;
             }
             else if( n== "pistolet laser")
             {

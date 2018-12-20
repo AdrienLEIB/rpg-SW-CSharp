@@ -221,6 +221,7 @@ namespace projet
                         damage_player(b);
                         break;
                     case 2:
+                        inv.triInventaire();
                         inv.affInventaire();
                         int j = Program.AskChoice(0, inv.item.Count);
                         if (j < inv.item.Count)
@@ -305,6 +306,7 @@ namespace projet
                         break;
                     case 2:
                         inv.affInventaire();
+                        inv.triInventaire();
                         int j = Program.AskChoice(0, inv.item.Count);
                         if (j < inv.item.Count)
                         {

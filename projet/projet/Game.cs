@@ -371,19 +371,6 @@ Vous ne pouvez pas entrer dans l'étoile de la mort sans indices !
             //Console.WriteLine("\n Les rebelles manquent de force. \n Mon Mothma leader de l'alliance \n prepare une attaque direct à l' \n étoile de la mort & l'assasinat \n du terrifiant Dark Vador... \n Un jeune héros formé à Alderaan \n décide de participer au combat..");
             Console.ForegroundColor = ConsoleColor.White;
         }
-        public static void damage(Joueur heros,Boss boss)
-        {
-
-                if(heros.atk > boss.def)
-                {
-                    boss.hp = boss.hp - (heros.atk - boss.def);
-                }     
-                if(heros.atk <= boss.def )
-                {
-                    boss.hp = boss.hp - 1;
-                }
-            
-        }
         public static void afficheScenario(List<String> sce)
         {
             while(sce.Count >5)

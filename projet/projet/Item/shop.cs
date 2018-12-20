@@ -93,12 +93,12 @@ namespace projet
                         heros.money = money_save;
                         heros.inv.addInventaire(item[i]);
                         Console.WriteLine("Succes !");
-                        Thread.Sleep(1000);
+                        Thread.Sleep(0200);
                     }
                     else
                     {
                         Console.WriteLine("Erreur vous n'avez pas assez");
-                        Thread.Sleep(1000);
+                        Thread.Sleep(0200);
                     }
                 }
             }

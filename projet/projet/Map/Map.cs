@@ -38,9 +38,11 @@ namespace projet
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.Write("Օ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(", Planete :");
+            Console.Write(", Centre Pokemon :");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Օ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(", Planet :");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.Write("Օ");
             Console.ForegroundColor = ConsoleColor.DarkYellow;

@@ -388,7 +388,7 @@ Vous ne pouvez pas entrer dans l'étoile de la mort sans indices !
         {
             while(sce.Count >5)
             {
-                Thread.Sleep(0500);
+                Thread.Sleep(1000);
                 Console.Clear();
                 for (int i = 0; i < 6; i++)
                 {

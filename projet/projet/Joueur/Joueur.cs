@@ -425,7 +425,7 @@ namespace projet
 
 ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" chaque première lettre de chaque planete dans l'odre croissant est !,");
+            Console.WriteLine(" chaque planete porte une couleur, recuperer la premier lettre de chaque couleur pour faire un mot !");
             mdp = Console.ReadLine();
             if (mdp == "vador")
             {

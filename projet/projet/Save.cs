@@ -59,6 +59,7 @@ namespace projet
 
             while ((resultat == 0))
             {
+
                 world.affMap(heros);
                 heros.Deplacement(world);
 

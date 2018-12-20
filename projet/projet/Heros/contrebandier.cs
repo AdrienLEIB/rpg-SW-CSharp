@@ -11,11 +11,11 @@ namespace projet
         public contrebandier(string n):base(n)
         {
             heros = "contrebandier";
-            hp_base = 150;
-            atk_base = 100;
-            def_base = 100;
-            speed_base = 100;
-            money = money + 1000;
+            hp_base = 15000;
+            atk_base = 10000;
+            def_base = 10000;
+            speed_base = 10000;
+            money = money + 10000;
 
 
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;

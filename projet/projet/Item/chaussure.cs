@@ -30,7 +30,7 @@ namespace projet
                 value = 0;
                 prix = 0;
             }
-            id = 3;
+            id = 2;
         }
     }
 }

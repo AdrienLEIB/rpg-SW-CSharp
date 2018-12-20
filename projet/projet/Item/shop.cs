@@ -15,21 +15,23 @@ namespace projet
         public Shop(Joueur heros)
         {
             item = new List<Item>();
-            string name = "sabrelaser";
-            Item sabrelaser = new arme(name);
-            item.Add(sabrelaser);
 
-            name = "pistolet laser";
-            Item pistoletlaser = new arme(name);
-            item.Add(pistoletlaser);
 
-            name = "diamant";
+            string name = "diamant";
             Item diamant = new armure(name);
             item.Add(diamant);
 
             name = "fer";
             Item fer = new armure(name);
             item.Add(fer);
+
+            name = "sabrelaser";
+            Item sabrelaser = new arme(name);
+            item.Add(sabrelaser);
+
+            name = "pistolet laser";
+            Item pistoletlaser = new arme(name);
+            item.Add(pistoletlaser);
 
             name = "converse";
             Item converse = new chaussure(name);
@@ -46,11 +48,11 @@ namespace projet
         {
 
             Console.Clear();
-            int nb = 1;
+            int nb = 0;
             Console.WriteLine("Armures :");
             for (int i = 0; i < item.Count; i++)
             {
-                if (item[i].id == 1)
+                if (item[i].id == 0)
                 {
                     Console.WriteLine(nb + " - " + item[i].name + ", Prix :" + item[i].prix);
                     nb++;
@@ -59,7 +61,7 @@ namespace projet
             Console.WriteLine("Armes :");
             for (int i = 0; i < item.Count; i++)
             {
-                if (item[i].id == 2)
+                if (item[i].id == 1)
                 {
                     Console.WriteLine(nb + " - " + item[i].name + ", Prix :" + item[i].prix);
                     nb++;
@@ -68,7 +70,7 @@ namespace projet
             Console.WriteLine("Chaussures :");
             for (int i = 0; i < item.Count; i++)
             {
-                if (item[i].id == 3)
+                if (item[i].id == 2)
                 {
                     Console.WriteLine(nb + " - " + item[i].name + ", Prix :" + item[i].prix);
                     nb++;
@@ -81,7 +83,7 @@ namespace projet
         {
 
             Console.WriteLine("Vous avez : " + heros.money);
-            int o = Program.AskChoice(0, (item.Count+1));
+            int o = Program.AskChoice(0, (item.Count));
 
             for (int i = 0; i < item.Count; i++)
             {
@@ -92,6 +94,7 @@ namespace projet
                     {
                         heros.money = money_save;
                         heros.inv.addInventaire(item[i]);
+                        Console.Write(item[i].name);
                         Console.WriteLine("Succes !");
                         Thread.Sleep(0200);
                     }
@@ -102,7 +105,7 @@ namespace projet
                     }
                 }
             }
-            if (o < (item.Count + 1))
+            if (o < (item.Count))
             {
                 affShop();
                 Vente(heros);

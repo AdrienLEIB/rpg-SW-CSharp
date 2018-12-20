@@ -11,6 +11,7 @@ namespace projet
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("\n Main Menu: \n\t 1 - Create New Game \n\t 2 - Load Saved Game \n`\t 3 - About \n\t 4 - Exit");
             
             int want = Program.AskChoice(1, 4);

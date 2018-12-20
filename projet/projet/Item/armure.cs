@@ -15,7 +15,6 @@ namespace projet
             if(n == "diamant")
             {
                 name = n;
-                id = 1;
                 value = 1500;
                 prix = 100;
 
@@ -23,18 +22,16 @@ namespace projet
             else if( n== "fer")
             {
                 name = n;
-                id = 1;
                 value = 500;
                 prix = 25;
             }
             else
             {
                 name = n;
-                id = 1;
                 value = 0;
                 prix = 0;
             }
-            //id = 1;
+            id = 0;
         }
 
     }

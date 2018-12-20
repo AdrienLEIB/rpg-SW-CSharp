@@ -27,7 +27,7 @@ namespace projet
             {
                 for (int j = 0; j < item.Count; j++)
                 {
-                    if (item[i].id > item[j].id)
+                    if (item[i].id < item[j].id)
                     {
                         Item item_save = item[j];
                         item[j] = item[i];
@@ -40,11 +40,11 @@ namespace projet
         {
             Console.Clear();
             triInventaire();
-            int nb = 1;
+            int nb = 0;
             Console.WriteLine("Armures :");
             for (int i = 0; i < item.Count; i++)
             {
-                if(item[i].id==1)
+                if(item[i].id==0)
                     {
                     Console.WriteLine(nb + " - " + item[i].name);
                     nb++;
@@ -53,7 +53,7 @@ namespace projet
             Console.WriteLine("Armes :");
             for (int i = 0; i < item.Count; i++)
             {
-                if (item[i].id == 2)
+                if (item[i].id == 1)
                 {
                     Console.WriteLine(nb + " - " + item[i].name);
                     nb++;
@@ -62,7 +62,7 @@ namespace projet
             Console.WriteLine("Chaussures :");
             for (int i = 0; i < item.Count; i++)
             {
-                if (item[i].id == 3)
+                if (item[i].id == 2)
                 {
                     Console.WriteLine(nb + " - " + item[i].name);
                     nb++;

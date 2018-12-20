@@ -11,10 +11,10 @@ namespace projet
         public jedi(string n):base(n)
         {
             heros = "jedi";
-            hp_base = 150;
-            atk_base = 250;
-            def_base = 100;
-            speed_base = 250;
+            hp_base = 15000;
+            atk_base = 25000;
+            def_base = 10000;
+            speed_base = 25000;
 
 
             atk = (atk_base * (lvl + 1)) + equip.equipement[1].value;
